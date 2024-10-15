@@ -9,6 +9,7 @@ import (
 func main(){
     e := echo.New()
 
+    e.Static("/static", "assets")
     handlers.SetupRoutes(e, handlers.Home)
 
     e.Use(middleware.Logger())

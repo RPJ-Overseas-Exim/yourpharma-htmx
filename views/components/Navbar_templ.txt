@@ -1,0 +1,3 @@
+<nav id=\"primary-nav\" class=\"flex border-b border-border justify-between bg-green-600 w-full p-4\"><a href=\"/\" class=\"h-[20px] w-[20px]\">
+</a><div>
+</div></nav>

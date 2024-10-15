@@ -1,0 +1,13 @@
+package home_views
+
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
+
+templ Home(name string) {
+	<h1>{ name } </h1>
+}
+
+templ HomeIndex(title string, cmp templ.Component) {
+	@layouts.Base(title) {
+		@cmp
+	}
+}

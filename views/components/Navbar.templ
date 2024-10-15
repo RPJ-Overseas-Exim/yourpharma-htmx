@@ -1,0 +1,14 @@
+package components
+
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/icons"
+
+templ Navbar() {
+	<nav id="primary-nav" class="flex border-b border-border justify-between bg-green-600 w-full p-4">
+		<a href="/" class="h-[20px] w-[20px]">
+            @icons.Pill()
+        </a>
+        <div>
+            @icons.Menu()
+        </div>
+	</nav>
+}
