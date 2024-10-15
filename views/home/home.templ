@@ -1,10 +1,16 @@
 package home_views
 
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components"
 
-templ Home(name string) {
-	<h1>{ name } </h1>
+templ Home() {
+    <main class="px-4">
+        <section id="featured-products" class="my-4">
+            @components.Card()
+        </section>
+    </main>
 }
+
 
 templ HomeIndex(title string, cmp templ.Component) {
 	@layouts.Base(title) {

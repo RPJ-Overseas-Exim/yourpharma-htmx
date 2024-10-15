@@ -6,7 +6,10 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                background: "hsl(var(--background))",
+                background: {
+                    DEFAULT:"hsl(var(--background))",
+                    transparent: "hsl(var(--background) / 60%)"
+                },
                 foreground: "hsl(var(--foreground))",
                 card: "hsl(var(--card))",
                 cardForeground: "hsl(var(--card))",
@@ -16,8 +19,10 @@ module.exports = {
                 primaryForeground: "hsl(var(--primary))",
                 secondary: "hsl(var(--secondary))",
                 secondaryForeground: "hsl(var(--secondary))",
-                muted: "hsl(var(--muted))",
-                mutedForeground: "hsl(var(--muted))",
+                muted: {
+                    DEFAULT: "hsl(var(--muted))",
+                    foreground: "hsl(var(--muted))",
+                },
                 accent: "hsl(var(--accent))",
                 accentForeground: "hsl(var(--accent))",
                 destructive: "hsl(var(--destructive))",

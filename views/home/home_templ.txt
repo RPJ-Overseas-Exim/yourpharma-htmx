@@ -1,2 +1,2 @@
-<h1>
-</h1>
+<main class=\"px-4\"><section id=\"featured-products\" class=\"my-4\">
+</section></main>

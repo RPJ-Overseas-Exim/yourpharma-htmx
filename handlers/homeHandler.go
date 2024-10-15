@@ -21,7 +21,7 @@ func renderTempl(ctx echo.Context, status int, t templ.Component) error {
 
 func Home(c echo.Context) error {
 
-	homeCmp := home_views.Home("Muzammil")
+	homeCmp := home_views.Home()
 	cmp := home_views.HomeIndex("Home", homeCmp)
 
 	return renderTempl(c, 200, cmp)
