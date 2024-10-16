@@ -5,10 +5,17 @@ module.exports = {
     content: ["../views/**/*.{templ,go}"],
     theme: {
         extend: {
+            gridTemplateColumns:{
+                basic: "repeat(auto-fit, minmax(300px, 1fr))"
+            },
             colors: {
                 background: {
                     DEFAULT:"hsl(var(--background))",
-                    transparent: "hsl(var(--background) / 60%)"
+                    transparent:{
+                        sm: "hsl(var(--background) / 90%)",
+                        md: "hsl(var(--background) / 70%)",
+                        lg: "hsl(var(--background) / 50%)"
+                    }
                 },
                 foreground: "hsl(var(--foreground))",
                 card: "hsl(var(--card))",

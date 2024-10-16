@@ -1,0 +1,11 @@
+package ui
+
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/globs"
+
+templ ButtonDiv(class string){
+    <div type="button" class={
+        globs.Merger.Merge(`flex items-center justify-center rounded-md p-2 font-semibold ` + class)
+        }>
+        { children...}
+    </div>
+}

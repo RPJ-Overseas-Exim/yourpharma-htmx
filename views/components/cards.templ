@@ -1,0 +1,11 @@
+package components
+
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
+
+templ Cards(cards []*customTypes.Product) {
+	<div class="grid grid-cols-1 md: grid-cols-basic gap-4">
+		for _, items := range cards {
+			@Card( items )
+		}
+	</div>
+}

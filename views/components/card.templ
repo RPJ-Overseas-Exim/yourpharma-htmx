@@ -1,31 +1,57 @@
 package components
 
-templ Card() {
-	<div class="rounded-md bg-muted border border-muted">
-		<div class="overflow-hidden ">
-			<div
-				class="relative transform duration-500 hover:scale-125
-            active:scale-125 focus:scale-125"
-			>
+import (
+	"fmt"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
+	"strconv"
+	"strings"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
+)
+
+templ Card(card *customTypes.Product) {
+	<div id={ card.Id } class="card overflow-hidden project-card rounded-md bg-muted border border-muted">
+		<div class="relative overflow-hidden">
+			<div>
 				<img
-					src="/static/images/zolpidem.webp"
+					id={ card.Id + "-img" }
+					src={ fmt.Sprintf("/static/images/products/%v.webp", strings.ToLower(card.Title)) }
 					alt="zolpidem medication"
-					class="transition hover:w-[200%]"
+					class="transition transform duration-500 w-full h-[300px] object-cover"
 				/>
-				<div class="hidden hover:flex absolute bg-background-transparent top-0 bottom-0 w-full h-full items-center justify-center">
-					<button type="button" class="px-3 border-2 border-foreground text-lg">
+				<div class={ card.Id + `-img-view-overlay hidden flex 
+                absolute bg-background-transparent-lg top-0 bottom-0 
+                w-full h-full items-center justify-center`}>
+					<button type="button" class="px-3 border-2 border-foreground md:px-3 md:py-1 md:text-xl text-lg">
 						View
 					</button>
 				</div>
 			</div>
 		</div>
-
 		<div class="p-4">
-			<div class="flex justify-between items-center mb-2">
-				<h1 class="text-lg font-bold">Zolpidem</h1>
-				<p class="text-sm font-semibold text-sky-500">$245 / 90</p>
+			<div class="flex justify-between items-center mb-4">
+				<h1 class="text-lg font-bold">{ card.Title }</h1>
+				<p class="text-sm font-semibold text-sky-500">${ strconv.Itoa(card.PriceQty[0].Price) } / { strconv.Itoa(card.PriceQty[0].Price) }</p>
 			</div>
-			<button type="button" class="rounded-md p-2 bg-green-600 w-full hover:bg-green-700 active:bg-green-700 focus:bg-green-700 font-bold">Buy Now</button>
+			<div class="flex items-center gap-2">
+
+                @ui.ButtonDiv(`border-[3px]
+                w-full border-sky-600 text-sky-600 
+                hover:text-foreground active:text-foreground focus:text-foreground
+                hover:bg-sky-600 active:bg-sky-600 focus:bg-sky-600`){
+                    <button>
+                        View 
+                    </button>
+                }
+
+                @ui.ButtonDiv(`border-[3px]
+                w-full border-green-600 bg-green-600 hover:border-green-700
+                hover:bg-green-700 active:bg-green-700 focus:bg-green-700`){
+                    <button>
+                        Buy Now
+                    </button>
+                }
+
+			</div>
 		</div>
 	</div>
 }

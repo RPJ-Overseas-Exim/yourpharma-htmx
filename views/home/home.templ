@@ -2,11 +2,22 @@ package home_views
 
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components"
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/home"
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
+
+
+var cards = []*customTypes.Product{
+    customTypes.NewProduct("abc","Zolpidem", 245,90 ),
+    customTypes.NewProduct("def","Alprazolam", 245, 90),
+    customTypes.NewProduct("ghi","Clonazepam", 245, 90),
+    customTypes.NewProduct("jkl","Lorazepam", 245, 90),
+}
 
 templ Home() {
-    <main class="px-4">
-        <section id="featured-products" class="my-4">
-            @components.Card()
+    <main class="my-4 md:my-8">
+        @components_home.Home_Title_h1("Featured Products")
+        <section id="featured-products">
+            @components.Cards(cards)
         </section>
     </main>
 }

@@ -1,5 +1,18 @@
 package product_views
 
-templ Product(){
-    <h1>Product</h1>
+import (
+    "github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
+    "strings"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
+)
+
+templ Product(product *customTypes.Product){
+    <section id={product.Id} class="flex gap-4">
+     <div>
+         <img src={"/static/images/products/" + strings.ToLower(product.Title)} alt={product.Title}>
+     </div>
+     <div>
+         @ui.Title_h2(product.Title)
+     </div>
+    </section>
 }
