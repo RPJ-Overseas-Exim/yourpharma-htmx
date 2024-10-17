@@ -5,19 +5,11 @@ import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components"
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/home"
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
 
-
-var cards = []*customTypes.Product{
-    customTypes.NewProduct("abc","Zolpidem", 245,90 ),
-    customTypes.NewProduct("def","Alprazolam", 245, 90),
-    customTypes.NewProduct("ghi","Clonazepam", 245, 90),
-    customTypes.NewProduct("jkl","Lorazepam", 245, 90),
-}
-
-templ Home() {
+templ Home( products []*customTypes.Product) {
     <main class="my-4 md:my-8">
         @components_home.Home_Title_h1("Featured Products")
         <section id="featured-products">
-            @components.Cards(cards)
+            @components.Cards(products)
         </section>
     </main>
 }

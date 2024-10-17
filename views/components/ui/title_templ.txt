@@ -1,2 +1,6 @@
-<h2 class=\"text-xl mb-4 font-bold\">
+<h2 class=\"
+\">
+</h2>
+<h2 class=\"
+\">
 </h2>

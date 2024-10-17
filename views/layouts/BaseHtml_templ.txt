@@ -1,4 +1,4 @@
 <!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, minimum-scale=1.0\"><title>
-</title><link rel=\"stylesheet\" href=\"/static/css/main.css\" type=\"text/css\"><script src=\"/static/js/main.mjs\" type=\"module\" defer></script></head><body class=\"dark\">
+</title><link rel=\"stylesheet\" href=\"/static/css/main.css\" type=\"text/css\"><script src=\"/static/js/main.mjs\" type=\"module\" defer></script><script src=\"/static/js/lib/htmx.min.js\"></script></head><body class=\"dark\">
 <div class=\"px-4 md:px-10 lg:px-20\">
 </div></body></html>

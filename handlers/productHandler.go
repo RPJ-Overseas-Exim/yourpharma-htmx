@@ -16,7 +16,13 @@ type ProductHandler struct {
     ProductService ProductService
 }
 
-func (ph *ProductHandler)  singleProductHanlder(c echo.Context, ps *ProductService) error {
+func NewProductHandler (ps ProductService) *ProductHandler{
+    return &ProductHandler{
+        ProductService: ps,
+    }
+}
+
+func (ph *ProductHandler)  singleProductHandler(c echo.Context) error {
     productId := c.Param("productId")
     data,err := ph.ProductService.GetProduct(productId)
     if err!=nil {

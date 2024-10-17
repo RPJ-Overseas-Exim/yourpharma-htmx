@@ -21,9 +21,9 @@ templ Card(card *customTypes.Product) {
 				<div class={ card.Id + `-img-view-overlay hidden flex 
                 absolute bg-background-transparent-lg top-0 bottom-0 
                 w-full h-full items-center justify-center`}>
-					<button type="button" class="px-3 border-2 border-foreground md:px-3 md:py-1 md:text-xl text-lg">
+					<a href={templ.URL("/product/" + card.Id)} class="inline-block px-3 border-2 border-foreground md:py-2 md:px-4 text-lg md:text-2xl">
 						View
-					</button>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -38,9 +38,9 @@ templ Card(card *customTypes.Product) {
                 w-full border-sky-600 text-sky-600 
                 hover:text-foreground active:text-foreground focus:text-foreground
                 hover:bg-sky-600 active:bg-sky-600 focus:bg-sky-600`){
-                    <button>
+                    <a class="w-full text-center h-full" href={templ.URL("/product/" + card.Id)} type="button">
                         View 
-                    </button>
+                    </a>
                 }
 
                 @ui.ButtonDiv(`border-[3px]

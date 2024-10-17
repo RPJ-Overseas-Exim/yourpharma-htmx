@@ -1,18 +1,40 @@
 package product_views
 
 import (
-    "github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
-    "strings"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
+	"strconv"
+	"strings"
 )
 
-templ Product(product *customTypes.Product){
-    <section id={product.Id} class="flex gap-4">
-     <div>
-         <img src={"/static/images/products/" + strings.ToLower(product.Title)} alt={product.Title}>
-     </div>
-     <div>
-         @ui.Title_h2(product.Title)
-     </div>
-    </section>
+templ Product(product *customTypes.Product) {
+	@layouts.Base(product.Title + "| YourPharma") {
+		<section id={ product.Id } class="xl:w-4/5 xl:mx-auto md:flex gap-4 my-4 md:my-8">
+			<div class="md:w-1/2 ">
+				<img src={ "/static/images/products/" + strings.ToLower(product.Title) + ".webp" } alt={ product.Title }/>
+			</div>
+			<div class="md:w-1/2">
+				@ui.Title_h2(product.Title, "mt-2")
+
+				<div class="border border-border rounded-md p-4">
+
+					@ui.Title_h3("Price and Quantity", "")
+
+					<form class="space-y-2 text-lg" action={templ.URL("/buy/" + product.Id)} method="GET" >
+						<div class="pl-4 mb-4">
+							for _, priceQty := range product.PriceQty {
+								@ui.RadioButton("price-qty-" + strconv.Itoa(priceQty.Qty), strconv.Itoa(priceQty.Qty)) {
+									{ strconv.Itoa(priceQty.Qty) + " pills for " + "$" + strconv.Itoa(priceQty.Price) }
+								}
+							}
+						</div>
+						@ui.ButtonDiv("bg-green-600 hover:bg-green-700") {
+							<button type="submit" class="w-full h-full text-center">Buy Now</button>
+						}
+					</form>
+				</div>
+			</div>
+		</section>
+	}
 }

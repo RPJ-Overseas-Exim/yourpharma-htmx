@@ -13,14 +13,7 @@ import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components"
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/home"
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
 
-var cards = []*customTypes.Product{
-	customTypes.NewProduct("abc", "Zolpidem", 245, 90),
-	customTypes.NewProduct("def", "Alprazolam", 245, 90),
-	customTypes.NewProduct("ghi", "Clonazepam", 245, 90),
-	customTypes.NewProduct("jkl", "Lorazepam", 245, 90),
-}
-
-func Home() templ.Component {
+func Home(products []*customTypes.Product) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -53,7 +46,7 @@ func Home() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.Cards(cards).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Cards(products).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
