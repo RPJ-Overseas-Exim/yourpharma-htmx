@@ -14,6 +14,7 @@ templ OrderForm(product string, qty int) {
                 <div id="order-form__container" class="flex transition transform duration-300">
                     @components_order.ContactForm()
                     @components_order.PaymentForm()
+                    @components_order.ConfirmationForm()
                 </div>
 			</div>
 		</section>

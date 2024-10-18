@@ -1,1 +1,6 @@
-<section id=\"order-form-progress\"><div></div></section>
+<section id=\"order-form-progress\" class=\"px-8 flex w-full justify-between items-center gap-2\">
+ <hr class=\"border-t border-green-600 w-full\">
+ <hr class=\"border-t border-muted-foreground w-full\">
+ <hr class=\"border-t border-green-600 w-full\">
+ <hr class=\"border-t border-muted-foreground w-full\">
+</section>

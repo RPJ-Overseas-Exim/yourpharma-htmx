@@ -19,9 +19,9 @@ templ Card(card *customTypes.Product) {
 					class="transition transform duration-500 w-full h-[300px] object-cover"
 				/>
 				<div class={ card.Id + `-img-view-overlay hidden flex 
-                absolute bg-background-transparent-lg top-0 bottom-0 
+                absolute lg:bg-background-transparent-lg top-0 bottom-0 
                 w-full h-full items-center justify-center`}>
-					<a href={templ.URL("/product/" + card.Id)} class="inline-block px-3 border-2 border-foreground md:py-2 md:px-4 text-lg md:text-2xl">
+					<a href={templ.URL("/product/" + card.Id)} class="hidden lg:inline-block px-3 border-2 border-foreground md:py-2 md:px-4 text-lg md:text-2xl">
 						View
 					</a>
 				</div>
@@ -38,7 +38,7 @@ templ Card(card *customTypes.Product) {
                 w-full border-sky-600 text-sky-600 
                 hover:text-foreground active:text-foreground focus:text-foreground
                 hover:bg-sky-600 active:bg-sky-600 focus:bg-sky-600`){
-                    <a class="w-full text-center h-full" href={templ.URL("/product/" + card.Id)} type="button">
+                    <a class="w-full text-center h-full" href={templ.URL("/product/" + card.Id)}>
                         View 
                     </a>
                 }

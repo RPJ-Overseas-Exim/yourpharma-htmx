@@ -81,7 +81,7 @@ func Card(card *customTypes.Product) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var5 = []any{card.Id + `-img-view-overlay hidden flex 
-                absolute bg-background-transparent-lg top-0 bottom-0 
+                absolute lg:bg-background-transparent-lg top-0 bottom-0 
                 w-full h-full items-center justify-center`}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var5...)
 		if templ_7745c5c3_Err != nil {

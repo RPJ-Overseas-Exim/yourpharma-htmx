@@ -1,0 +1,10 @@
+package components_order
+
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/icons"
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/globs"
+
+templ OrderFormProgressCheckmark(class string) {
+    <div class={globs.Merger.Merge("w-fit text-green-600 border border-border rounded-full p-2 text-lg " + class)}>
+        @icons.Check()
+    </div>
+}

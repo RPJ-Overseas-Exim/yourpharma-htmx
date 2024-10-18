@@ -1,8 +1,27 @@
 package components_order
 
 templ OrderFormProgress(progress int) {
-    <section id="order-form-progress">
-        <div>
-        </div>
-    </section>
+	<section id="order-form-progress" class="px-8 flex w-full justify-between items-center gap-2">
+		if progress >0 {
+			@OrderFormProgressCheckmark("")
+			<hr class="border-t border-green-600 w-full"/>
+		} else {
+			@OrderFormProgressCheckmark("text-muted-foreground")
+			<hr class="border-t border-muted-foreground w-full"/>
+		}
+
+		if progress >1 {
+			@OrderFormProgressCheckmark("")
+			<hr class="border-t border-green-600 w-full"/>
+		} else {
+			@OrderFormProgressCheckmark("text-muted-foreground")
+			<hr class="border-t border-muted-foreground w-full"/>
+		}
+
+		if progress >2 {
+			@OrderFormProgressCheckmark("")
+		} else {
+			@OrderFormProgressCheckmark("text-muted-foreground")
+		}
+	</section>
 }

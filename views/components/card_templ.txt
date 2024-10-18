@@ -4,11 +4,11 @@
 \" alt=\"zolpidem medication\" class=\"transition transform duration-500 w-full h-[300px] object-cover\">
 <div class=\"
 \"><a href=\"
-\" class=\"inline-block px-3 border-2 border-foreground md:py-2 md:px-4 text-lg md:text-2xl\">View</a></div></div></div><div class=\"p-4\"><div class=\"flex justify-between items-center mb-4\"><h1 class=\"text-lg font-bold\">
+\" class=\"hidden lg:inline-block px-3 border-2 border-foreground md:py-2 md:px-4 text-lg md:text-2xl\">View</a></div></div></div><div class=\"p-4\"><div class=\"flex justify-between items-center mb-4\"><h1 class=\"text-lg font-bold\">
 </h1><p class=\"text-sm font-semibold text-sky-500\">$
  / 
 </p></div><div class=\"flex items-center gap-2\">
 <a class=\"w-full text-center h-full\" href=\"
-\" type=\"button\">View </a>
+\">View </a>
 <button>Buy Now</button>
 </div></div></div>

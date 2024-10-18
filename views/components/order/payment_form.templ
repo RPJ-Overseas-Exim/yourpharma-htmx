@@ -5,6 +5,7 @@ import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
 
 templ PaymentForm(){
 	<form id="payment-form" class="space-y-2 grow-1 shrink-0 w-full p-4">
+        @OrderFormProgress(1)
 		@ui.FormField("name", "Name: ", "Your name", "text")
 		<div>
 			@ui.FormField("email", "Email: ", "Your email", "email")
