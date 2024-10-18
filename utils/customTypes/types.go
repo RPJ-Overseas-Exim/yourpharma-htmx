@@ -48,7 +48,7 @@ type Order struct {
 	Name,
 	Email,
 	Address,
-	Products string
+	Product string
 	Quantity,
 	Amount int
 }

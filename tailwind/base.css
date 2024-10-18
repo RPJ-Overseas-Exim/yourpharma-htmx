@@ -107,4 +107,8 @@
         background: hsl(var(--muted-foreground));
     }
 
+    .active-form{
+        transform: translateX(0%);
+    }
+
 }

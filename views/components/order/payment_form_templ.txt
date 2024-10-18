@@ -1,0 +1,8 @@
+<form id=\"payment-form\" class=\"space-y-2 grow-1 shrink-0 w-full p-4\">
+<div>
+</div><p class=\"space-y-2\"><label for=\"address\">Address: </label> 
+<textarea name=\"address\" id=\"address\" class=\"
+\" placeholder=\"Your address\"></textarea></p><div class=\"pt-4 flex gap-2\">
+<button type=\"button\" data-page=\"1\" class=\"w-full h-full text-center prev-submit\">Prev</button>
+<button type=\"button\" data-page=\"1\" class=\"w-full h-full text-center next-submit\">Next</button>
+</div></form>

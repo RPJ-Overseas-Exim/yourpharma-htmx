@@ -1,0 +1,8 @@
+package ui
+
+templ FormField (id, label, placeholder, inputType string){
+    <p class="space-y-2">
+        <label for={id} class="block">{label}</label>
+        <input type={inputType} placeholder={placeholder} class="bg-background w-full border border-border rounded-md p-2" name={id} id={id}>
+    </p>
+}

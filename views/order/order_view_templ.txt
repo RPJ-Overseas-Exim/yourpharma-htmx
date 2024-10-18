@@ -1,3 +1,4 @@
-<div>Order Form for product 
- of qty 
-</div>
+<section id=\"
+\" class=\"border border-border rounded-md my-4\">
+<div id=\"order-form\" class=\"mt-4 overflow-hidden\"><div id=\"order-form__container\" class=\"flex transition transform duration-300\">
+</div></div></section>

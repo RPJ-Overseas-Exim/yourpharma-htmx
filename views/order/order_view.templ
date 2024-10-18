@@ -1,8 +1,21 @@
 package order
 
-import "strconv"
+import (
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/order"
+)
 
-templ OrderForm(product string, qty int){
-
-    <div>Order Form for product {product } of qty { strconv.Itoa(qty) }</div>
+templ OrderForm(product string, qty int) {
+	@layouts.Base(product + "| YP") {
+		<section id={ "buy-" + product } class="border border-border rounded-md my-4">
+			@ui.Title_h3("Buy "+ product, "text-2xl font-semibold p-4")
+			<div id="order-form" class="mt-4 overflow-hidden">
+                <div id="order-form__container" class="flex transition transform duration-300">
+                    @components_order.ContactForm()
+                    @components_order.PaymentForm()
+                </div>
+			</div>
+		</section>
+	}
 }
