@@ -4,7 +4,6 @@ if (projectCardsImage) {
     projectCardsImage.forEach(cardImg => {
         cardImg.addEventListener("mouseenter", projectCardMouseOver)
         cardImg.addEventListener("touchstart", projectCardTouchIn)
-
         const viewId = `.${cardImg.id}-view-overlay`
         const view = document.querySelector(viewId)
         view.addEventListener("mouseleave", () => projectCardMouseOut(cardImg))

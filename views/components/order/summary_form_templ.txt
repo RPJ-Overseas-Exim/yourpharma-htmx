@@ -1,5 +1,0 @@
-<form id=\"confirmation-form\" class=\"flex flex-col justify-between grow-1 h-full shrink-0 w-full p-4\"><div class=\"space-y-2\">
-</div><div class=\"pt-4 flex gap-2\">
-<button type=\"button\" data-page=\"1\" class=\"w-full h-full text-center prev-submit\">Prev</button>
-<button id=\"summary-form__submit\" data-page=\"1\" type=\"submit\" class=\"w-full h-full text-center\">Submit</button>
-</div></form>

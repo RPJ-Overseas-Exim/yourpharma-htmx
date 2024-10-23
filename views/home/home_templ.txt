@@ -1,3 +1,0 @@
-<main class=\"my-4 md:my-8\">
-<section id=\"featured-products\">
-</section></main>
