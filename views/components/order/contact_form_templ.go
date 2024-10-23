@@ -39,7 +39,7 @@ func ContactForm() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.FormField("name", "Name: ", "Your name", "text").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ui.FormField("name", "Name: ", "Your name", "text", true).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -47,7 +47,7 @@ func ContactForm() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.FormField("email", "Email: ", "Your email", "email").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ui.FormField("email", "Email: ", "Your email", "email", true).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

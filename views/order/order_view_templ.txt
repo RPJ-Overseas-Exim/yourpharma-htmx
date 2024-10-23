@@ -1,4 +1,4 @@
 <section id=\"
 \" class=\"border border-border rounded-md my-4\">
-<div id=\"order-form\" class=\"mt-4 overflow-hidden\"><div id=\"order-form__container\" class=\"flex transition transform duration-300\">
-</div></div></section>
+<div id=\"order-form\" class=\"mt-4 overflow-hidden\"><div id=\"order-form__container\" class=\"flex transition h-full shrink-0 transform duration-300\">
+</div><p class=\"order-form__error text-sm text-red-500 font-bold mb-4 text-center\"></p></div></section>

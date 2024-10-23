@@ -3,6 +3,7 @@ package handlers
 import (
 	"strconv"
 
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views"
 	"github.com/labstack/echo/v4"
 )
 
@@ -20,9 +21,12 @@ func SetupRoutes(e *echo.Echo, homeHandler *HomeHandler, producthandler *Product
     e.GET("/buy/:productId", func(c echo.Context) error {
         qty := c.QueryParam("price-qty")
         data, err := strconv.Atoi(qty)
+
         if err!= nil{
-            panic(err)
+            renderTempl(c, 404, views.NotFound())
+            return err
         }
+
         return orderHandler.handleOrderForm(c, data)
     })
 

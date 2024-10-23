@@ -6,21 +6,23 @@ import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
 templ PaymentForm(){
 	<form id="payment-form" class="space-y-2 grow-1 shrink-0 w-full p-4">
         @OrderFormProgress(1)
-		@ui.FormField("name", "Name: ", "Your name", "text")
-		<div>
-			@ui.FormField("email", "Email: ", "Your email", "email")
-			//<span class="text-xs leading-none">Make sure this is correct.</span>
-		</div>
-		<p class="space-y-2">
-			<label for="address">Address: </label>
-			<textarea
-				name="address"
-				id="address"
-				class={ `bg-background
-                    w-full border border-border rounded-md p-2` }
-				placeholder="Your address"
-			></textarea>
-		</p>
+
+        <div class="flex justify-center items-center border border-border rounded-md p-2">
+            <select name="payment-method" id="payment-method" class="text-foreground bg-background">
+                <optgroup label="Payment Method">
+                    <option value="PayPal">PayPal</option>
+                    <option value="Moneygram">Moneygram</option>
+                    <option value="Bitcoin">BitCoin</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Zelle">Zelle</option>
+                    <option value="Venmo">Venmo</option>
+                    <option value="Cash App">Cash App</option>
+                    <option value="Western Union">Western Union</option>
+                </optgroup>
+
+            </select>
+        </div>
+
 		<div class="pt-4 flex gap-2">
 			@ui.ButtonDiv("bg-red-600 hover:bg-red-700 w-1/2") {
 				<button type="button" data-page="1" class="w-full h-full text-center prev-submit">
@@ -29,7 +31,7 @@ templ PaymentForm(){
 			}
 
 			@ui.ButtonDiv("bg-green-600 hover:bg-green-700 w-1/2") {
-				<button type="button" data-page="1" class="w-full h-full text-center next-submit">
+				<button id="payment-form-submit" type="submit" data-page="1" class="w-full h-full text-center next-submit">
 					Next
 				</button>
 			}

@@ -1,0 +1,23 @@
+package components_order
+
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/icons"
+
+templ ConfirmedOrderPage() {
+	<section class="grow-1 space-y-4 shrink-0 p-4 text-lg text-center flex flex-col justify-between items-center w-full">
+        @OrderFormProgress(3)
+
+        <span class="inline-block mt-4 border border-[6px] p-4 rounded-full text-green-500">
+            @icons.ThumbsUp("64")
+        </span>
+
+		<p>
+			Your Order has been successfully been confirmed an executive will reach out to you with your payment link.
+			After which you will receive your tracking details on email.
+			Or you can directly mail to us on <a class="text-green-500" href="mailto:benzosupplies.usatousa@gmail.com">Benzo Supplies </a>
+		</p>
+        @ui.ButtonDiv("bg-green-500 hover:bg-green-600 w-full"){
+            <a class="w-full h-full text-center" href="/">Home</a>
+        }
+	</section>
+}

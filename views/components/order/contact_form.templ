@@ -3,23 +3,43 @@ package components_order
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
 
 templ ContactForm() {
-	<form id="contact-form" class="space-y-2 grow-1 shrink-0 w-full p-4">
-        @OrderFormProgress(0)
-		@ui.FormField("name", "Name: ", "Your name", "text")
-		<div>
-			@ui.FormField("email", "Email: ", "Your email", "email")
-			//<span class="text-xs leading-none">Make sure this is correct.</span>
-		</div>
-		<p class="space-y-2">
-			<label for="address">Address: </label>
-			<textarea
-				name="address"
-				id="address"
-				class={ `bg-background
+	<form id="contact-form" class="flex flex-col justify-between grow-1 h-full shrink-0 w-full p-4">
+		<div class="space-y-2">
+			@OrderFormProgress(0)
+			@ui.FormField("name", "Name: ", "Your name", "text", true)
+			<div>
+				@ui.FormField("email", "Email: ", "Your email", "email", true)
+				//<span class="text-xs leading-none">Make sure this is correct.</span>
+			</div>
+			<p class="space-y-2">
+				<label for="address">Address: </label>
+				<textarea
+					name="address"
+					id="address"
+					class={ `bg-background
                     w-full border border-border rounded-md p-2` }
-				placeholder="Your address"
-			></textarea>
-		</p>
+					placeholder="Your address"
+				></textarea>
+			</p>
+			<div class="space-y-2">
+				<label for="payment-method">Payment Method</label>
+				<div class="flex justify-start items-center border border-border rounded-md p-3">
+					<select name="payment-method" id="payment-method" class="w-full text-foreground bg-background">
+						<optgroup label="Payment Method">
+							<option value="PayPal">PayPal</option>
+							<option value="Moneygram">Moneygram</option>
+							<option value="Bitcoin">BitCoin</option>
+							<option value="Credit Card">Credit Card</option>
+							<option value="Zelle">Zelle</option>
+							<option value="Venmo">Venmo</option>
+							<option value="Cash App">Cash App</option>
+							<option value="Western Union">Western Union</option>
+						</optgroup>
+					</select>
+				</div>
+			</div>
+		</div>
+
 		<div class="pt-4 flex gap-2">
 			@ui.ButtonDiv("bg-red-600 hover:bg-red-700 w-1/2") {
 				<button type="button" data-page="0" class="w-full h-full text-center prev-submit">
@@ -27,7 +47,7 @@ templ ContactForm() {
 				</button>
 			}
 			@ui.ButtonDiv("bg-green-600 hover:bg-green-700 w-1/2") {
-				<button type="button" data-page="0" class="w-full h-full text-center next-submit">
+				<button id="contact-form-submit" type="submit" data-page="0" class="w-full h-full text-center next-submit">
 					Next
 				</button>
 			}

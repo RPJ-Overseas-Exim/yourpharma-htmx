@@ -28,7 +28,7 @@ module.exports = {
                 secondaryForeground: "hsl(var(--secondary))",
                 muted: {
                     DEFAULT: "hsl(var(--muted))",
-                    foreground: "hsl(var(--muted))",
+                    foreground: "hsl(var(--muted-foreground))",
                 },
                 accent: "hsl(var(--accent))",
                 accentForeground: "hsl(var(--accent))",

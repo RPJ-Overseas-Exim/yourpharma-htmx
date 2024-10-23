@@ -1,9 +1,10 @@
 package ui
 
-templ RadioButton(id , value string) {
+templ RadioButton( attrs templ.Attributes) {
 	<p class="my-1">
-		<input type="radio" name="price-qty" id={id} value={value} class="custom-radio"/>
-		<label for={id} class="flex items-center gap-2">
+		<input type="radio" name="price-qty" {attrs...} class="custom-radio"/>
+		<label for={attrs["id"].(string)} class="flex items-center gap-2">
+
 			<span class="checkmark">
 				<span class="checkmark__inner">
 					<span class="dot"></span>

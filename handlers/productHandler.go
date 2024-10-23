@@ -25,6 +25,7 @@ func NewProductHandler (ps ProductService) *ProductHandler{
 func (ph *ProductHandler)  singleProductHandler(c echo.Context) error {
     productId := c.Param("productId")
     data,err := ph.ProductService.GetProduct(productId)
+
     if err!=nil {
         panic(err)
     }

@@ -12,16 +12,16 @@ templ OrderFormProgress(progress int) {
 
 		if progress >1 {
 			@OrderFormProgressCheckmark("")
-			<hr class="border-t border-green-600 w-full"/>
 		} else {
 			@OrderFormProgressCheckmark("text-muted-foreground")
-			<hr class="border-t border-muted-foreground w-full"/>
 		}
-
+/*
 		if progress >2 {
 			@OrderFormProgressCheckmark("")
 		} else {
 			@OrderFormProgressCheckmark("text-muted-foreground")
 		}
+*/
+
 	</section>
 }

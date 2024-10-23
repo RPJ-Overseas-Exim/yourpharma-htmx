@@ -76,11 +76,11 @@ func OrderForm(product string, qty int) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = components_order.PaymentForm().Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components_order.SummaryForm().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = components_order.ConfirmationForm().Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components_order.ConfirmedOrderPage().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

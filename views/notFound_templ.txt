@@ -1,1 +1,1 @@
-<section id=\"not-found\" style=\"height:calc(100dvh - 49px);\" class=\" w-full font-bold text-6xl flex justify-center items-center\">404 | Not Found</section>
+<section id=\"not-found\" style=\"height:calc(100dvh - 49px);\" class=\"w-full font-bold text-3xl lg:text-6xl flex justify-center items-center\">404 | Not Found</section>

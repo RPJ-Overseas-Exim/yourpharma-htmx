@@ -1,5 +1,4 @@
-<p class=\"my-1\"><input type=\"radio\" name=\"price-qty\" id=\"
-\" value=\"
-\" class=\"custom-radio\"> <label for=\"
+<p class=\"my-1\"><input type=\"radio\" name=\"price-qty\"
+ class=\"custom-radio\"> <label for=\"
 \" class=\"flex items-center gap-2\"><span class=\"checkmark\"><span class=\"checkmark__inner\"><span class=\"dot\"></span></span></span>
 </label></p>
