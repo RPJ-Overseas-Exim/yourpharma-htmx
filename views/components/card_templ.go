@@ -10,13 +10,13 @@ import templruntime "github.com/a-h/templ/runtime"
 
 import (
 	"fmt"
-	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
 	"strconv"
 	"strings"
 )
 
-func Card(card *customTypes.Product) templ.Component {
+func Card(card *models.Product) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -55,7 +55,7 @@ func Card(card *customTypes.Product) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var3 string
-		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(card.Id + "-img")
+		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs("img-" + card.Id)
 		if templ_7745c5c3_Err != nil {
 			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/card.templ`, Line: 16, Col: 26}
 		}
@@ -68,9 +68,9 @@ func Card(card *customTypes.Product) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("/static/images/products/%v.webp", strings.ToLower(card.Title)))
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("/static/images/products/%v.webp", strings.ToLower(card.Name)))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/card.templ`, Line: 17, Col: 86}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/card.templ`, Line: 17, Col: 85}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -80,7 +80,7 @@ func Card(card *customTypes.Product) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var5 = []any{card.Id + `-img-view-overlay hidden flex 
+		var templ_7745c5c3_Var5 = []any{"img-view-overlay-" + card.Id + ` hidden flex 
                 absolute lg:bg-background-transparent-lg top-0 bottom-0 
                 w-full h-full items-center justify-center`}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var5...)
@@ -114,9 +114,9 @@ func Card(card *customTypes.Product) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var8 string
-		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(card.Title)
+		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(card.Name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/card.templ`, Line: 32, Col: 46}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/card.templ`, Line: 34, Col: 45}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {
@@ -127,9 +127,9 @@ func Card(card *customTypes.Product) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var9 string
-		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(card.PriceQty[0].Price))
+		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(int(card.PriceQty[0].Price)))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/card.templ`, Line: 33, Col: 89}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/card.templ`, Line: 35, Col: 94}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {
@@ -140,9 +140,9 @@ func Card(card *customTypes.Product) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var10 string
-		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(card.PriceQty[0].Price))
+		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(int(card.PriceQty[0].Qty)))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/card.templ`, Line: 33, Col: 132}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/card.templ`, Line: 35, Col: 140}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {

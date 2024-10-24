@@ -1,39 +1,34 @@
 package services
 
 import (
-
-	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
+	"gorm.io/gorm"
 )
 
 type ProductService struct{
-    products  []*customTypes.Product
+    dbConn *gorm.DB
 }
 
-func NewProductService() *ProductService{
+func NewProductService(dbConn *gorm.DB) *ProductService{
     return &ProductService{
-        products,
+        dbConn,
     }
 }
 
-func (ps *ProductService) GetProducts() ([]*customTypes.Product, error){
-    return ps.products, nil
+func (ps *ProductService) GetProducts() ([]*models.Product, error){
+    var products []*models.Product
+    err := ps.dbConn.Find(&products).Error
+    return products, err
 }
 
-func (ps *ProductService) PostProduct(product *customTypes.Product)error{
-    products = append(products, product)
+func (ps *ProductService) PostProduct(product *models.Product)error{
     return nil
 }
 
-func (ps *ProductService) GetProduct(productId string) (*customTypes.Product, error){
-    var product *customTypes.Product
-    var err error = &customTypes.HttpException{ Message:"Couldn't get any product for the provided id." }
+func (ps *ProductService) GetProduct(productId string) (*models.Product, error){
+    var product *models.Product
 
-    for _, prod := range ps.products{
-        if prod.Id == productId{
-            product = prod
-            err = nil
-        }
-    }
+    err := ps.dbConn.Joins("INNER JOIN price_qties on price_qties.product_id=products.id").Preload("PriceQty").Group("products.id").First(&product, "products.id = ?", productId).Error
 
     return product, err
 }

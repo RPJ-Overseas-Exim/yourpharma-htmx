@@ -2,26 +2,28 @@ package components
 
 import (
 	"fmt"
-	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
 	"strconv"
 	"strings"
-	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
 )
 
-templ Card(card *customTypes.Product) {
+templ Card(card *models.Product) {
 	<div id={ card.Id } class="card overflow-hidden project-card rounded-md bg-muted border border-muted">
 		<div class="relative overflow-hidden">
 			<div>
 				<img
-					id={ card.Id + "-img" }
-					src={ fmt.Sprintf("/static/images/products/%v.webp", strings.ToLower(card.Title)) }
+					id={ "img-" + card.Id }
+					src={ fmt.Sprintf("/static/images/products/%v.webp", strings.ToLower(card.Name)) }
 					alt="zolpidem medication"
 					class="transition transform duration-500 w-full h-[300px] object-cover"
 				/>
-				<div class={ card.Id + `-img-view-overlay hidden flex 
+				<div
+					class={ "img-view-overlay-" +  card.Id + ` hidden flex 
                 absolute lg:bg-background-transparent-lg top-0 bottom-0 
-                w-full h-full items-center justify-center`}>
-					<a href={templ.URL("/product/" + card.Id)} class="hidden lg:inline-block px-3 border-2 border-foreground md:py-2 md:px-4 text-lg md:text-2xl">
+                w-full h-full items-center justify-center` }
+				>
+					<a href={ templ.URL("/product/" + card.Id) } class="hidden lg:inline-block px-3 border-2 border-foreground md:py-2 md:px-4 text-lg md:text-2xl">
 						View
 					</a>
 				</div>
@@ -29,29 +31,26 @@ templ Card(card *customTypes.Product) {
 		</div>
 		<div class="p-4">
 			<div class="flex justify-between items-center mb-4">
-				<h1 class="text-lg font-bold">{ card.Title }</h1>
-				<p class="text-sm font-semibold text-sky-500">${ strconv.Itoa(card.PriceQty[0].Price) } / { strconv.Itoa(card.PriceQty[0].Price) }</p>
+				<h1 class="text-lg font-bold">{ card.Name }</h1>
+				<p class="text-sm font-semibold text-sky-500">${ strconv.Itoa(int(card.PriceQty[0].Price)) } / { strconv.Itoa(int(card.PriceQty[0].Qty)) }</p>
 			</div>
 			<div class="flex items-center gap-2">
-
-                @ui.ButtonDiv(`border-[3px]
+				@ui.ButtonDiv(`border-[3px]
                 w-full border-sky-600 text-sky-600 
                 hover:text-foreground active:text-foreground focus:text-foreground
-                hover:bg-sky-600 active:bg-sky-600 focus:bg-sky-600`){
-                    <a class="w-full text-center h-full" href={templ.URL("/product/" + card.Id)}>
-                        View 
-                    </a>
-                }
-
-                @ui.ButtonDiv(`border-[3px]
+                hover:bg-sky-600 active:bg-sky-600 focus:bg-sky-600`) {
+					<a class="w-full text-center h-full" href={ templ.URL("/product/" + card.Id) }>
+						View 
+					</a>
+				}
+				@ui.ButtonDiv(`border-[3px]
                 w-full border-green-600 bg-green-600 hover:border-green-700
-                hover:bg-green-700 active:bg-green-700 focus:bg-green-700`){
-                    <button>
-                        Buy Now
-                    </button>
-                }
-
-                @ui.Dialog()
+                hover:bg-green-700 active:bg-green-700 focus:bg-green-700`) {
+					<button>
+						Buy Now
+					</button>
+				}
+				@ui.Dialog()
 			</div>
 		</div>
 	</div>

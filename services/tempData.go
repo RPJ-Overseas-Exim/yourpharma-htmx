@@ -1,8 +1,6 @@
 package services
 
 import (
-	"log"
-
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
 )
 
@@ -11,7 +9,6 @@ func Main(){
     zolpidem := customTypes.NewProduct("abc","Zolpidem", 245, 90 )
     zolpidem.PriceQty = append(zolpidem.PriceQty, customTypes.PriceQty{Price: 360, Qty: 180})
     products = append(products, zolpidem)
-    log.Print(zolpidem)
 }
 
 

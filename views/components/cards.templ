@@ -1,8 +1,8 @@
 package components
 
-import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
 
-templ Cards(cards []*customTypes.Product) {
+templ Cards(cards []*models.Product) {
 	<div class="grid grid-cols-1 md: grid-cols-basic gap-4">
 		for _, items := range cards {
 			@Card( items )

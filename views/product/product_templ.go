@@ -9,14 +9,14 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import (
-	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
 	"strconv"
 	"strings"
 )
 
-func Product(product *customTypes.Product) templ.Component {
+func Product(product *models.Product) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -67,9 +67,9 @@ func Product(product *customTypes.Product) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs("/static/images/products/" + strings.ToLower(product.Title) + ".webp")
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs("/static/images/products/" + strings.ToLower(product.Name) + ".webp")
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/product/product.templ`, Line: 15, Col: 84}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/product/product.templ`, Line: 15, Col: 83}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -80,9 +80,9 @@ func Product(product *customTypes.Product) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(product.Title)
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(product.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/product/product.templ`, Line: 15, Col: 106}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/product/product.templ`, Line: 15, Col: 104}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -92,7 +92,7 @@ func Product(product *customTypes.Product) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = ui.Title_h2(product.Title, "mt-2").Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = ui.Title_h2(product.Name, "mt-2").Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -132,9 +132,9 @@ func Product(product *customTypes.Product) templ.Component {
 						}
 						ctx = templ.InitializeContext(ctx)
 						var templ_7745c5c3_Var8 string
-						templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(priceQty.Qty) + " pills for " + "$" + strconv.Itoa(priceQty.Price))
+						templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(int(priceQty.Qty)) + " pills for " + "$" + strconv.Itoa(int(priceQty.Price)))
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/product/product.templ`, Line: 30, Col: 121}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/product/product.templ`, Line: 29, Col: 131}
 						}
 						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 						if templ_7745c5c3_Err != nil {
@@ -142,7 +142,7 @@ func Product(product *customTypes.Product) templ.Component {
 						}
 						return templ_7745c5c3_Err
 					})
-					templ_7745c5c3_Err = ui.RadioButton(templ.Attributes{"id": "price-qty-" + strconv.Itoa(priceQty.Qty), "value": strconv.Itoa(priceQty.Qty), "checked": "true"}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)
+					templ_7745c5c3_Err = ui.RadioButton(templ.Attributes{"id": "price-qty-" + strconv.Itoa(int(priceQty.Qty)), "value": strconv.Itoa(int(priceQty.Qty)), "checked": "true"}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -160,9 +160,9 @@ func Product(product *customTypes.Product) templ.Component {
 						}
 						ctx = templ.InitializeContext(ctx)
 						var templ_7745c5c3_Var10 string
-						templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(priceQty.Qty) + " pills for " + "$" + strconv.Itoa(priceQty.Price))
+						templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(int(priceQty.Qty)) + " pills for " + "$" + strconv.Itoa(int(priceQty.Price)))
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/product/product.templ`, Line: 34, Col: 121}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/product/product.templ`, Line: 34, Col: 131}
 						}
 						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 						if templ_7745c5c3_Err != nil {
@@ -170,7 +170,7 @@ func Product(product *customTypes.Product) templ.Component {
 						}
 						return templ_7745c5c3_Err
 					})
-					templ_7745c5c3_Err = ui.RadioButton(templ.Attributes{"id": "price-qty-" + strconv.Itoa(priceQty.Qty), "value": strconv.Itoa(priceQty.Qty)}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var9), templ_7745c5c3_Buffer)
+					templ_7745c5c3_Err = ui.RadioButton(templ.Attributes{"id": "price-qty-" + strconv.Itoa(int(priceQty.Qty)), "value": strconv.Itoa(int(priceQty.Qty))}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var9), templ_7745c5c3_Buffer)
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -208,7 +208,7 @@ func Product(product *customTypes.Product) templ.Component {
 			}
 			return templ_7745c5c3_Err
 		})
-		templ_7745c5c3_Err = layouts.Base(product.Title+"| YourPharma").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layouts.Base(product.Name+"| YourPharma").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

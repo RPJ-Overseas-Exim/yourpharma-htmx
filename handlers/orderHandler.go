@@ -1,8 +1,6 @@
 package handlers
 
 import (
-	"log"
-
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views"
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/order"
 	"github.com/labstack/echo/v4"
@@ -32,7 +30,6 @@ func (oh *OrderHandler) handleOrderForm(c echo.Context, qty int) error {
     if error !=nil {
         panic(error)
     }
-    log.Println(data.Title)
-	comp := order.OrderForm(data.Title, qty)
+	comp := order.OrderForm(data.Name, qty)
 	return renderTempl(c, 200, comp)
 }

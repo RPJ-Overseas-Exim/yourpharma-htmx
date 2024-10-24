@@ -2,8 +2,7 @@ package handlers
 
 import (
 	"net/http"
-
-	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/home"
 	"github.com/a-h/templ"
 	"github.com/labstack/echo/v4"
@@ -24,7 +23,7 @@ func renderTempl(ctx echo.Context, status int, t templ.Component) error {
 }
 
 type HomeService interface{
-    GetFeaturedProducts() ([]*customTypes.Product, error)
+    GetFeaturedProducts() ([]*models.Product, error)
 }
 
 type HomeHandler struct{
@@ -42,6 +41,7 @@ func (homeHandler *HomeHandler)homePageHandler(c echo.Context) error {
     if err!=nil{
         panic(err)
     }
+
     homeCmp :=home_views.Home(homeData)
 	cmp := home_views.HomeIndex("Home", homeCmp)
 	return renderTempl(c, 200, cmp)

@@ -3,9 +3,9 @@ package home_views
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components"
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/home"
-import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
 
-templ Home( products []*customTypes.Product) {
+templ Home( products []*models.Product) {
     <main class="my-4 md:my-8">
         @components_home.Home_Title_h1("Featured Products")
         <section id="featured-products">

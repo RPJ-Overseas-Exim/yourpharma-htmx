@@ -1,21 +1,21 @@
 package product_views
 
 import (
-	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
 	"strconv"
 	"strings"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
 )
 
-templ Product(product *customTypes.Product) {
-	@layouts.Base(product.Title + "| YourPharma") {
+templ Product(product *models.Product) {
+	@layouts.Base(product.Name + "| YourPharma") {
 		<section id={ product.Id } class="xl:w-4/5 xl:mx-auto md:flex gap-4 my-4 md:my-8">
 			<div class="md:w-1/2 ">
-				<img src={ "/static/images/products/" + strings.ToLower(product.Title) + ".webp" } alt={ product.Title }/>
+				<img src={ "/static/images/products/" + strings.ToLower(product.Name) + ".webp" } alt={ product.Name }/>
 			</div>
 			<div class="md:w-1/2">
-				@ui.Title_h2(product.Title, "mt-2")
+				@ui.Title_h2(product.Name, "mt-2")
 
 				<div class="border border-border rounded-md p-4">
 
@@ -24,14 +24,14 @@ templ Product(product *customTypes.Product) {
 					<form class="space-y-2 text-lg" action={templ.URL("/buy/" + product.Id)} method="GET" >
 						<div class="pl-4 mb-4">
 							for index, priceQty := range product.PriceQty {
-
                                 if index==0 {
-                                    @ui.RadioButton(templ.Attributes{"id": "price-qty-" + strconv.Itoa(priceQty.Qty), "value":strconv.Itoa(priceQty.Qty), "checked":"true"}) {
-                                        { strconv.Itoa(priceQty.Qty) + " pills for " + "$" + strconv.Itoa(priceQty.Price) }
+                                    @ui.RadioButton(templ.Attributes{"id": "price-qty-" + strconv.Itoa(int(priceQty.Qty)), "value":strconv.Itoa(int(priceQty.Qty)), "checked":"true"}) {
+                                        { strconv.Itoa(int(priceQty.Qty)) + " pills for " + "$" + strconv.Itoa(int(priceQty.Price)) }
                                     }
+
                                 }else {
-                                    @ui.RadioButton(templ.Attributes{"id": "price-qty-" + strconv.Itoa(priceQty.Qty), "value":strconv.Itoa(priceQty.Qty)}) {
-                                        { strconv.Itoa(priceQty.Qty) + " pills for " + "$" + strconv.Itoa(priceQty.Price) }
+                                    @ui.RadioButton(templ.Attributes{"id": "price-qty-" + strconv.Itoa(int(priceQty.Qty)), "value":strconv.Itoa(int(priceQty.Qty))}) {
+                                        { strconv.Itoa(int(priceQty.Qty)) + " pills for " + "$" + strconv.Itoa(int(priceQty.Price)) }
                                     }
                                 }
 							}

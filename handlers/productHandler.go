@@ -1,15 +1,15 @@
 package handlers
 
 import (
-	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils/customTypes"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
 	product_views "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/product"
 	"github.com/labstack/echo/v4"
 )
 
 type ProductService interface{
-    GetProducts() ([]*customTypes.Product, error);
-    GetProduct(productId string) (*customTypes.Product, error);
-    PostProduct(*customTypes.Product) error;
+    GetProducts() ([]*models.Product, error);
+    GetProduct(productId string) (*models.Product, error);
+    PostProduct(*models.Product) error;
 }
 
 type ProductHandler struct {

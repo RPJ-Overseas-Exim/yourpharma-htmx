@@ -7,7 +7,7 @@ import (
 )
 
 templ OrderForm(product string, qty int) {
-	@layouts.Base(product + "| YP") {
+	@layouts.Base(product + " | YP") {
 		<section id={ "buy-" + product } class="border border-border rounded-md my-4">
 			@ui.Title_h3("Buy "+ product, "text-2xl font-semibold p-4")
 			<div id="order-form" class="mt-4 overflow-hidden">
