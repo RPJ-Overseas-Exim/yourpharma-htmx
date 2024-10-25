@@ -1,9 +1,9 @@
 package ui
 
-templ Dialog() {
-	<div class="relative">
-		<div class="absolute z-60 top-0 left-0 flex justify-center items-center">
-			<div class="h-1/2 w-1/2 bg-muted-foreground"></div>
+templ Dialog(triggerId string) {
+	<div id={ triggerId } class="hidden fixed z-50 top-0 left-0 bg-muted-transparent-lg w-screen h-screen flex justify-center items-center">
+		<div class="w-full sm:w-1/2 max-w-xl bg-background sm:border sm:border-border sm:rounded-md overflow-hidden p-8">
+			{ children... }
 		</div>
 	</div>
 }

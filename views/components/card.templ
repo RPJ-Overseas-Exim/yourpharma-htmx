@@ -6,6 +6,7 @@ import (
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
 	"strconv"
 	"strings"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/icons"
 )
 
 templ Card(card *models.Product) {
@@ -46,12 +47,42 @@ templ Card(card *models.Product) {
 				@ui.ButtonDiv(`border-[3px]
                 w-full border-green-600 bg-green-600 hover:border-green-700
                 hover:bg-green-700 active:bg-green-700 focus:bg-green-700`) {
-					<button>
+					<button type="button" dialog-id={"buy-now-dialog-" + card.Id} class="buy-now-btn">
 						Buy Now
 					</button>
 				}
-				@ui.Dialog()
 			</div>
 		</div>
+		@ui.Dialog("buy-now-dialog-" + card.Id) {
+			<div class="h-full">
+
+				<div class="flex justify-between items-center">
+					@ui.Title_h3(card.Name, "")
+                    <button type="button" dialog-id={"buy-now-dialog-" + card.Id} class="buy-now-close-btn">
+                        @icons.Cross("18")
+                    </button>
+				</div>
+
+				<form class="space-y-2 text-lg" action={ templ.URL("/buy/" + card.Id) } method="GET">
+					<div class="pl-4 mb-4">
+						for index, priceQty := range card.PriceQty {
+							if index==0 {
+								@ui.RadioButton(templ.Attributes{"id": card.Id + "price-qty-" + strconv.Itoa(int(priceQty.Qty)), "value": strconv.Itoa(int(priceQty.Qty)), "checked": "true"}) {
+									{ strconv.Itoa(int(priceQty.Qty)) + " pills for " + "$" + strconv.Itoa(int(priceQty.Price)) }
+								}
+							} else {
+								@ui.RadioButton(templ.Attributes{"id": card.Id + "price-qty-" + strconv.Itoa(int(priceQty.Qty)), "value": strconv.Itoa(int(priceQty.Qty))}) {
+									{ strconv.Itoa(int(priceQty.Qty)) + " pills for " + "$" + strconv.Itoa(int(priceQty.Price)) }
+								}
+							}
+						}
+					</div>
+					@ui.ButtonDiv("bg-green-600 hover:bg-green-700") {
+						<button type="submit" class="w-full h-full text-center">Buy Now</button>
+					}
+				</form>
+			</div>
+		}
 	</div>
 }
+

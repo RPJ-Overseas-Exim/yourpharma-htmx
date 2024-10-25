@@ -1,4 +1,16 @@
 const projectCardsImage = document.querySelectorAll(".project-card img")
+const buyNowBtns = document.querySelectorAll(".buy-now-btn")
+const buyNowCloseBtns = document.querySelectorAll(".buy-now-close-btn")
+
+
+if(buyNowBtns){
+    buyNowBtns.forEach(btn=>{
+        btn.addEventListener("click",()=>openDialog("#" + btn.getAttribute("dialog-id")))
+    })
+    buyNowCloseBtns.forEach(btn=>{
+        btn.addEventListener("click",()=>closeDialog("#" + btn.getAttribute("dialog-id")))
+    })
+}
 
 if (projectCardsImage) {
     projectCardsImage.forEach(cardImg => {
@@ -9,6 +21,24 @@ if (projectCardsImage) {
         view.addEventListener("mouseleave", () => projectCardMouseOut(cardImg))
         view.addEventListener("touchend", () => projectCardMouseOut(cardImg))
     })
+}
+
+export function closeDialog(dialogId){
+    const dialog = document.querySelector(dialogId)
+    if(!dialog){
+        console.log("Dialog couldn't be found for the given id")
+        return
+    }
+    dialog.classList.add("hidden")
+}
+
+export function openDialog(dialogId){
+    const dialog = document.querySelector(dialogId)
+    if(!dialog){
+        console.log("Dialog couldn't be found for the given id")
+        return
+    }
+    dialog.classList.remove("hidden")
 }
 
 function projectCardMouseOver(e) {
@@ -39,3 +69,4 @@ function projectCardTouchIn(e){
     if (view.classList.contains("hidden"))
         view.classList.remove("hidden")
 }
+
