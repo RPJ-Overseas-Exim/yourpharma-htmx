@@ -1,22 +1,24 @@
 package order
 
 import (
+	components_order "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/order"
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
-	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/order"
 )
 
-templ OrderForm(product string, qty int) {
+templ OrderForm(product, id string, qty int) {
 	@layouts.Base(product + " | YP") {
 		<section id={ "buy-" + product } class="border border-border rounded-md my-4">
-			@ui.Title_h3("Buy "+ product, "text-2xl font-semibold p-4")
+			@ui.Title_h3("Buy "+product, "text-2xl font-semibold p-4")
 			<div id="order-form" class="mt-4 overflow-hidden">
-                <div id="order-form__container" class="flex transition h-full shrink-0 transform duration-300">
-                    @components_order.ContactForm()
-                    @components_order.SummaryForm()
-                    @components_order.ConfirmedOrderPage()
-                </div>
-                <p class="order-form__error text-sm text-red-500 font-bold mb-4 text-center"></p>
+				<div id="order-form__container" class="flex transition h-full shrink-0 transform duration-300">
+					@components_order.ContactForm()
+					@components_order.SummaryForm(id, qty)
+					<div id="confirmed-order-container" class="grow-1 space-y-4 shrink-0 w-full">
+						@components_order.ConfirmFormSkeleton()
+					</div>
+				</div>
+				<p class="order-form__error text-sm text-red-500 font-bold mb-4 text-center"></p>
 			</div>
 		</section>
 	}

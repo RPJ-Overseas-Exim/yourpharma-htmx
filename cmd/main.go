@@ -21,7 +21,7 @@ func main() {
 	handlers.SetupRoutes(e,
         handlers.NewHomeHandler(services.NewHomeService(dbConn)),
 		handlers.NewProductHandler(ps),
-		handlers.NewOrderHandler(services.NewOrderService(), ps),
+		handlers.NewOrderHandler(services.NewOrderService(dbConn), services.NewCustomerService(dbConn), ps),
 	)
 
 	e.Use(middleware.Logger())

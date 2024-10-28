@@ -16,7 +16,6 @@ function initialize() {
         orderForm.style.transform = `translateX(-${(page - 1) * 100}%)`
     }
 
-
     const handleOrderNextPage = (e) => {
         e.preventDefault()
         const contactFormData = new FormData(contactForm)
@@ -26,6 +25,7 @@ function initialize() {
         if (page === 0) {
             const name = contactFormData.get("name")
             const email = contactFormData.get("email")
+            const number = contactFormData.get("mobile-number")
 
             if (!name) {
                 formError.textContent = "Name is not provided"
@@ -34,6 +34,10 @@ function initialize() {
 
             if (!email || !email.match(/[^[^@]+@[^@]+\.[^@]+$/)) {
                 formError.textContent = "Valid email is not provided"
+                return
+            }
+            if (number !== "" && number.length !== 10 || isNaN(Number(number))) {
+                formError.textContent = "Valid number is not provided"
                 return
             }
             

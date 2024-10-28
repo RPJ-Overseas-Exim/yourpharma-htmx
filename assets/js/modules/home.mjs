@@ -1,15 +1,21 @@
 const projectCardsImage = document.querySelectorAll(".project-card img")
 const buyNowBtns = document.querySelectorAll(".buy-now-btn")
 const buyNowCloseBtns = document.querySelectorAll(".buy-now-close-btn")
+const dialogBackgrounds = document.querySelectorAll(".dialog-background")
 
 
-if(buyNowBtns){
-    buyNowBtns.forEach(btn=>{
-        btn.addEventListener("click",()=>openDialog("#" + btn.getAttribute("dialog-id")))
+if (buyNowBtns) {
+    buyNowBtns.forEach(btn => {
+        btn.addEventListener("click", () => openDialog("#" + btn.getAttribute("dialog-id")))
     })
-    buyNowCloseBtns.forEach(btn=>{
-        btn.addEventListener("click",()=>closeDialog("#" + btn.getAttribute("dialog-id")))
+    buyNowCloseBtns.forEach(btn => {
+        btn.addEventListener("click", () => closeDialog("#" + btn.getAttribute("dialog-id")))
     })
+
+}
+
+if (dialogBackgrounds) {
+    dialogBackgrounds.forEach(dialogBg => dialogBg.addEventListener("click", () => closeDialog("#" + dialogBg.getAttribute("dialog-id"))))
 }
 
 if (projectCardsImage) {
@@ -23,18 +29,18 @@ if (projectCardsImage) {
     })
 }
 
-export function closeDialog(dialogId){
+export function closeDialog(dialogId) {
     const dialog = document.querySelector(dialogId)
-    if(!dialog){
+    if (!dialog) {
         console.log("Dialog couldn't be found for the given id")
         return
     }
     dialog.classList.add("hidden")
 }
 
-export function openDialog(dialogId){
+export function openDialog(dialogId) {
     const dialog = document.querySelector(dialogId)
-    if(!dialog){
+    if (!dialog) {
         console.log("Dialog couldn't be found for the given id")
         return
     }
@@ -61,7 +67,7 @@ function projectCardMouseOut(cardImg) {
     }
 }
 
-function projectCardTouchIn(e){
+function projectCardTouchIn(e) {
     const cardImg = e.target
     cardImg.style.transform = "scale(1.25)"
 

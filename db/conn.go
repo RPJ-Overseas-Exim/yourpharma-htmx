@@ -24,10 +24,13 @@ func InitializeDB() *gorm.DB{
     if err!=nil{
         log.Fatal("Error connecting to database")
     }
-   // db.AutoMigrate(&models.Order{})
-   //  db.AutoMigrate(&models.Product{})
-   //  db.AutoMigrate(&models.PriceQty{})
 
+    // db.AutoMigrate(&models.Product{})
+    // db.AutoMigrate(&models.Customer{})
+    // db.AutoMigrate(&models.Order{})
+    // db.AutoMigrate(&models.PriceQty{})
+    //
+    // populateTempData(db)
 
     return db
 }

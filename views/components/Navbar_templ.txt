@@ -1,3 +1,0 @@
-<nav id=\"primary-nav\" class=\"sticky z-40 top-0 left-0 flex border-b backdrop-blur-md bg-background-transparent-sm border-border justify-between w-full p-4\"><a href=\"/\" class=\"h-[20px] w-[20px] text-green-600\">
-</a><div class=\"text-green-600\">
-</div></nav>

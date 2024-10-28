@@ -9,14 +9,11 @@ import (
 
 func testDB(){
     db := InitializeDB()
-       address := "Mumbai"
 
     order := models.Order{
            Id:"abc",
-           Name:"Name",
-           Email:"Email ",
-           Address: &address,
-           Product: "Product",
+           CustomerId: "jdfkjddk",
+           ProductId: "fjdkjfsjdfkdfj",
            Quantity: 180,
            Amount: 360,
            CreatedAt: time.Now(),

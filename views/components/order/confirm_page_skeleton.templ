@@ -1,0 +1,11 @@
+package components_order
+
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
+
+templ ConfirmFormSkeleton() {
+	<div class="flex justify-between items-center flex-col h-full p-4">
+		@ui.Skeleton("h-32 w-32 rounded-full")
+		@ui.Skeleton("h-32")
+		@ui.Skeleton("h-16")
+	</div>
+}

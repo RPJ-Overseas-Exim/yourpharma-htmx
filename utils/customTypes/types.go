@@ -39,7 +39,7 @@ type HttpException struct {
 	Message string
 }
 
-func (httpException *HttpException) Error() string {
+func (httpException HttpException) Error() string {
 	return fmt.Sprintf(httpException.Message)
 }
 

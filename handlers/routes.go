@@ -29,6 +29,10 @@ func SetupRoutes(e *echo.Echo, homeHandler *HomeHandler, producthandler *Product
 
         return orderHandler.handleOrderForm(c, data)
     })
+    
+    e.POST("/order/:productId", func(c echo.Context) error {
+        return orderHandler.handleOrderFormPost(c)
+    })
 
 	return nil
 }

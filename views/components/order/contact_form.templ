@@ -7,10 +7,9 @@ templ ContactForm() {
 		<div class="space-y-2">
 			@OrderFormProgress(0)
 			@ui.FormField("name", "Name: ", "Your name", "text", true)
-			<div>
-				@ui.FormField("email", "Email: ", "Your email", "email", true)
-				//<span class="text-xs leading-none">Make sure this is correct.</span>
-			</div>
+            @ui.FormField("email", "Email: ", "Your email", "email", true)
+			@ui.FormField("mobile-number", "Number: ", "Your number", "text", false)
+
 			<p class="space-y-2">
 				<label for="address">Address: </label>
 				<textarea

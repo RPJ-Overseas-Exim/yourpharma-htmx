@@ -23,10 +23,10 @@ func populateTempData(db *gorm.DB) {
     clonazepamId:=GenerateNanoid()
     lorazepamId:=GenerateNanoid()
     product := []*models.Product{
-        models.NewProduct(zolpidemId, "zolpidem" ,models.NewPriceQty(zolpidemId, []string{GenerateNanoid(), GenerateNanoid()}, []int16{90,180}, []int16{245, 360})),
-        models.NewProduct(alprazolamId, "alprazolam" ,models.NewPriceQty(alprazolamId, []string{GenerateNanoid(), GenerateNanoid()}, []int16{90,180}, []int16{245, 360})),
-        models.NewProduct(clonazepamId, "clonazepam" ,models.NewPriceQty(clonazepamId, []string{GenerateNanoid(), GenerateNanoid()}, []int16{90,180}, []int16{245, 360})),
-        models.NewProduct(lorazepamId, "lorazepam" ,models.NewPriceQty(lorazepamId, []string{GenerateNanoid(), GenerateNanoid()}, []int16{90,180}, []int16{245, 360})),
+        models.NewProduct(zolpidemId, "zolpidem" ,models.NewPriceQty(zolpidemId, []string{GenerateNanoid(), GenerateNanoid()}, []int16{245, 360}, []int16{90,180})),
+        models.NewProduct(alprazolamId, "alprazolam" ,models.NewPriceQty(alprazolamId, []string{GenerateNanoid(), GenerateNanoid()}, []int16{245, 360}, []int16{90,180})),
+        models.NewProduct(clonazepamId, "clonazepam" ,models.NewPriceQty(clonazepamId, []string{GenerateNanoid(), GenerateNanoid()}, []int16{245, 360}, []int16{90,180})),
+        models.NewProduct(lorazepamId, "lorazepam" ,models.NewPriceQty(lorazepamId, []string{GenerateNanoid(), GenerateNanoid()}, []int16{245, 360}, []int16{90,180})),
     }
 
     results := db.Create(product)
@@ -37,3 +37,4 @@ func populateTempData(db *gorm.DB) {
         log.Println("Products initialized successfully")
     }
 }
+
