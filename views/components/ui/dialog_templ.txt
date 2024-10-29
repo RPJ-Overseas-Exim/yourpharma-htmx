@@ -1,4 +1,0 @@
-<div id=\"
-\" class=\"hidden fixed z-50 top-0 left-0 w-screen h-screen flex justify-center items-center\" role=\"dialog\"><div class=\"dialog-background absolute z-40 bg-muted-transparent-lg h-full w-full\" dialog-id=\"
-\"></div><div class=\"relative z-50 w-full sm:w-1/2 max-w-xl bg-background sm:border sm:border-border sm:rounded-md overflow-hidden p-8\">
-</div></div>
