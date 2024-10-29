@@ -6,11 +6,12 @@ import (
 
 type Order struct {
 	Id,
-    CustomerId string
+    CustomerId string `gorm:"uniqueIndex:idx_uniqueOrder"`
     ProductId string `gorm:"uniqueIndex:idx_uniqueOrder"`
 	Quantity int `gorm:"uniqueIndex:idx_uniqueOrder"`
 	Amount int 
     Status string `gorm:"uniqueIndex:idx_uniqueOrder"`
+    Origin string 
     CreatedAt,
     UpdatedAt time.Time
 }
@@ -22,7 +23,7 @@ func NewOrder(id, customerId, productId string, quantity, amount int) *Order{
         ProductId: productId,
         Quantity: quantity,
         Amount: amount,
-        Status: "new",
+        Status: "Active",
         CreatedAt: time.Now(),
         UpdatedAt: time.Now(),
     }

@@ -1,0 +1,9 @@
+<p class=\"space-y-2\">
+<label for=\"
+\" class=\"block\">
+</label> 
+<input type=\"
+\" placeholder=\"
+\" class=\"bg-background w-full border border-border rounded-md p-2\" name=\"
+\" id=\"
+\"></p>

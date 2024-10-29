@@ -4,7 +4,6 @@ import (
 	"log"
 	"os"
 
-	// "github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -24,12 +23,7 @@ func InitializeDB() *gorm.DB{
     if err!=nil{
         log.Fatal("Error connecting to database")
     }
-
-    // db.AutoMigrate(&models.Product{})
-    // db.AutoMigrate(&models.Customer{})
-    // db.AutoMigrate(&models.Order{})
-    // db.AutoMigrate(&models.PriceQty{})
-    //
+    // migrateDb(db)
     // populateTempData(db)
 
     return db

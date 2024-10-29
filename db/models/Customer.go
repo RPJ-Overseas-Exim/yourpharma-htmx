@@ -1,5 +1,7 @@
 package models
 
+import "time"
+
 type Customer struct{
     Id,
     Name string 
@@ -7,6 +9,8 @@ type Customer struct{
     Number *int 
 	Address *string
     Order []Order
+    CreatedAt,
+    UpdatedAt time.Time
 }
 
 func NewCustomer(id, name, email string, number *int, address *string) *Customer{

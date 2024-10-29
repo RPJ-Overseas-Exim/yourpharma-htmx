@@ -43,6 +43,13 @@ func (httpException HttpException) Error() string {
 	return fmt.Sprintf(httpException.Message)
 }
 
+type CustomException struct {
+    Message string
+}
+func (ce CustomException) Error() string {
+    return fmt.Sprintf(ce.Message)
+}
+
 type Order struct {
 	Id,
 	Name,

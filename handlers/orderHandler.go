@@ -79,6 +79,7 @@ func (oh *OrderHandler) handleOrderFormPost(c echo.Context) error {
     utils.HandleError(customerErr, "Customer could not be created")
     utils.HandleError(orderErr, "Order couldn't be created")
 
+
 	comp = components_order.ConfirmedOrderPage(true)
 	return renderTempl(c, 200, comp)
 }

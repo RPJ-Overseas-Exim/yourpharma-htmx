@@ -1,0 +1,7 @@
+<section class=\"p-4 text-lg text-center flex flex-col justify-between items-center h-full shrink-0 grow-1\">
+ <span class=\"inline-block mt-4 border border-[6px] p-4 rounded-full text-green-500\">
+</span><p>Your Order has been successfully been confirmed an executive will reach out to you with your payment link. After which you will receive your tracking details on email. Or you can directly mail to us on <a class=\"text-green-500\" href=\"mailto:benzosupplies.usatousa@gmail.com\">Benzo Supplies </a></p>
+<span class=\"inline-block mt-4 border border-[6px] p-4 rounded-full text-red-500\">
+</span><p>Your Order couldn't be placed at this moment, please try again or contact directly through email to confirm your order by emailing to us on <a class=\"text-green-500\" href=\"mailto:benzosupplies.usatousa@gmail.com\">Benzo Supplies </a></p>
+<a class=\"w-full h-full text-center\" href=\"/\">Home</a>
+</section>
