@@ -1,0 +1,24 @@
+package components_home
+
+import (
+	"fmt"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
+)
+
+templ FeatureCard(title, image string) {
+	<div class="flex flex-col lg:flex-row gap-8 justify-between items-start max-w-4xl">
+		<div class="relative feature-card__image w-[95%] lg:max-w-[40%] mx-auto lg:w-full">
+			<img
+				src={ fmt.Sprintf("/static/images/%v.jpg", image) }
+				alt={ image }
+				class="rounded-md w-full h-full object-cover relative z-20"
+			/>
+		</div>
+		<div class="lg:max-w-[55%] w-[95%] mx-auto">
+			@ui.Title_h2(title, "mb-2")
+			<p class="m-0">
+				{ children... }
+			</p>
+		</div>
+	</div>
+}

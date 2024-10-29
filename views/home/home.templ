@@ -4,12 +4,28 @@ import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components"
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/home"
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
 
 templ Home( products []*models.Product) {
     <main class="my-4 md:my-8">
-        @components_home.Home_Title_h1("Featured Products")
+        @components_home.Home_Title_h1("Browse Our Huge catalog of products")
+        @ui.Title_h3("The Best in the Business","text-xs lg:text-sm text-muted-foreground mb-4")
         <section id="featured-products">
             @components.Cards(products)
+            <a href="/products" class="font-semibold mt-4 inline-block text-base hover:text-sky-500 lg:text-xl">View All</a>
+        </section>
+
+        <section id="features" class="my-8 flex gap-8 items-center justify-start flex-wrap">
+            @components_home.FeatureCard("Genuine", "handshake"){
+				We can gurantee our genuinity by the 100000+ orders devlivered
+				to customers. We only promise what we can deliver and not anything
+				more than that.
+            }
+            @components_home.FeatureCard("Speedy Delivery", "speed"){
+			    Express delivery at your doorsteps with USPS. Moreover this
+                Delivery is USA to USA so no hassle of customs. We guarantee a
+                refund in case you can prove to us of a mistake on our part.
+            }
         </section>
     </main>
 }

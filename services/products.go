@@ -21,6 +21,12 @@ func (ps *ProductService) GetProducts() ([]*models.Product, error) {
 	return products, err
 }
 
+func (ps *ProductService) GetFeaturedProducts() ([]*models.Product, error){
+    var products []*models.Product
+    err := ps.dbConn.Order("createdAt").Limit(10).Find(&products).Error
+    return products, err
+}
+
 func (ps *ProductService) PostProduct(product *models.Product) error {
 	return nil
 }

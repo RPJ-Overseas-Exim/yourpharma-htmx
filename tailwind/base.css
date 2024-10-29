@@ -111,4 +111,26 @@
         transform: translateX(0%);
     }
 
+    .feature-card__image::after {
+        content:'';
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        transition: transform .2s ease-out;
+        height:100%;
+        border-radius: 0.375rem;
+        transform:translate(1rem, 1rem);
+        border: 2px solid #22c55e;
+    }
+
+    .feature-card__image:hover::after{
+        transform:translate(0, 0);
+    }
+
 }
+			/*<div*/
+			/*	class={ `drop-border absolute z-10 top-0 left-0 bottom-0 right-0 */
+			/*         w-full transition duration-600 rounded-md h-full transform */
+			/*         translate-x-4 translate-y-4 border-2 border-green-500` }*/
+			/*></div>*/

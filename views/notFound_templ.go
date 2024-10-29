@@ -43,7 +43,7 @@ func NotFound() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section id=\"not-found\" style=\"height:calc(100dvh - 49px);\" class=\"w-full font-bold text-3xl lg:text-6xl flex justify-center items-center\">404 | Not Found</section>")
+			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 1)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

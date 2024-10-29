@@ -1,0 +1,5 @@
+<div class=\"flex flex-col lg:flex-row gap-8 justify-between items-start max-w-4xl\"><div class=\"relative feature-card__image w-[95%] lg:max-w-[40%] mx-auto lg:w-full\"><img src=\"
+\" alt=\"
+\" class=\"rounded-md w-full h-full object-cover relative z-20\"></div><div class=\"lg:max-w-[55%] w-[95%] mx-auto\">
+<p class=\"m-0\">
+</p></div></div>

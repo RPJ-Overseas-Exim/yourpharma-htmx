@@ -1,0 +1,6 @@
+<main class=\"my-4 md:my-8\">
+<section id=\"featured-products\">
+<a href=\"/products\" class=\"font-semibold mt-4 inline-block text-base hover:text-sky-500 lg:text-xl\">View All</a></section><section id=\"features\" class=\"my-8 flex gap-8 items-center justify-start flex-wrap\">
+We can gurantee our genuinity by the 100000+ orders devlivered to customers. We only promise what we can deliver and not anything more than that.
+Express delivery at your doorsteps with USPS. Moreover this Delivery is USA to USA so no hassle of customs. We guarantee a refund in case you can prove to us of a mistake on our part.
+</section></main>
