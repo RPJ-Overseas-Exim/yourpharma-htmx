@@ -37,7 +37,7 @@ func NewOrderHandler(ordSer OrderService, cs CustomerService, ps ProductService)
 
 func (oh *OrderHandler) handleOrderForm(c echo.Context, qty int) error {
 	if qty != 180 && qty != 90 {
-		return renderTempl(c, 400, views.NotFound())
+		return renderTempl(c, 404, views.NotFound())
 	}
 	data, error := oh.ProductService.GetProduct(c.Param("productId"))
 	if error != nil {

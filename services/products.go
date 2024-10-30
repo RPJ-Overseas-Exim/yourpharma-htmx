@@ -17,13 +17,20 @@ func NewProductService(dbConn *gorm.DB) *ProductService {
 
 func (ps *ProductService) GetProducts() ([]*models.Product, error) {
 	var products []*models.Product
-	err := ps.dbConn.Find(&products).Error
+	err := ps.dbConn.Joins("INNER JOIN price_qties on price_qties.product_id=products.id").
+		Group("products.id").
+        Preload("PriceQty").
+	    Find(&products).Error
+
 	return products, err
 }
 
 func (ps *ProductService) GetFeaturedProducts() ([]*models.Product, error){
     var products []*models.Product
-    err := ps.dbConn.Order("createdAt").Limit(10).Find(&products).Error
+	err := ps.dbConn.Joins("INNER JOIN price_qties on price_qties.product_id=products.id").
+		Group("products.id").
+        Preload("PriceQty").
+		Limit(10).Find(&products).Error
     return products, err
 }
 

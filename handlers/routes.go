@@ -10,9 +10,17 @@ import (
 type handlerFunction func(echo.Context) error
 
 func SetupRoutes(e *echo.Echo, homeHandler *HomeHandler, producthandler *ProductHandler, orderHandler *OrderHandler) error {
+    e.GET("*", func(c echo.Context) error {
+        return Render404(c)
+    })
+
 	e.GET("/", func(c echo.Context) error {
         return homeHandler.homePageHandler(c)
 	})
+
+    e.GET("/products", func(c echo.Context) error {
+        return producthandler.handleAllProducts(c)
+    })
 
     e.GET("/product/:productId", func(c echo.Context) error{
         return producthandler.singleProductHandler(c)

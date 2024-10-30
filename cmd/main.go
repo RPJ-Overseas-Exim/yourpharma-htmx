@@ -19,7 +19,7 @@ func main() {
 
 	ps := services.NewProductService(dbConn)
 	handlers.SetupRoutes(e,
-        handlers.NewHomeHandler(services.NewHomeService(dbConn)),
+        handlers.NewHomeHandler(ps),
 		handlers.NewProductHandler(ps),
 		handlers.NewOrderHandler(services.NewOrderService(dbConn), services.NewCustomerService(dbConn), ps),
 	)

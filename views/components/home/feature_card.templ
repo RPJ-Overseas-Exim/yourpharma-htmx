@@ -5,20 +5,20 @@ import (
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
 )
 
-templ FeatureCard(title, image string) {
-	<div class="flex flex-col lg:flex-row gap-8 justify-between items-start max-w-4xl">
-		<div class="relative feature-card__image w-[95%] lg:max-w-[40%] mx-auto lg:w-full">
+templ FeatureCard(title, image , extension string) {
+	<div class="relative feature-card__image w-[95%] h-full mx-auto md:w-full">
+		<div class="relative rounded-md relative z-20 h-full overflow-hidden">
 			<img
-				src={ fmt.Sprintf("/static/images/%v.jpg", image) }
+				src={ fmt.Sprintf("/static/images/%[1]s.%[2]s", image, extension) }
 				alt={ image }
-				class="rounded-md w-full h-full object-cover relative z-20"
+				class="w-full h-full object-cover"
 			/>
-		</div>
-		<div class="lg:max-w-[55%] w-[95%] mx-auto">
-			@ui.Title_h2(title, "mb-2")
-			<p class="m-0">
-				{ children... }
-			</p>
+			<div class="absolute p-4 bottom-0 left-0 w-fit h-fit bg-background-transparent-lg mx-auto backdrop-blur-md">
+				@ui.Title_h2(title, "mb-2")
+				<p class="m-0">
+					{ children... }
+				</p>
+			</div>
 		</div>
 	</div>
 }

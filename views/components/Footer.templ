@@ -1,0 +1,41 @@
+package components
+
+import (
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
+	"strconv"
+	"time"
+)
+
+templ Footer() {
+	<footer class="p-16 lg:px-32 lg:py-16 bg-green-700 mt-16">
+		@ui.Title_h2("YourPharma", "lg:text-3xl")
+		<hr class="border-t border-muted-foreground"/>
+		<div class="flex justify-start gap-8 items-start my-4">
+			@FooterBlock("Contact") {
+				<ul class="pl-2 lg:text-lg space-y-1">
+                    @FooterListItem("mailto:benzosupplies.usatousa@gmail.com", "benzosupplies.usatousa@gmail.com")
+                    @FooterListItem("#", "Messenger")
+				</ul>
+			}
+			@FooterBlock("Other Links") {
+				<ul class="pl-2 lg:text-lg space-y-1">
+                    @FooterListItem("/privacy", "Privacy Policy")
+                    @FooterListItem("/terms", "Terms and Conditions")
+                    @FooterListItem("/faq", "FAQs")
+				</ul>
+			}
+		</div>
+		<p class="text-center">&copy;All rights reserved { strconv.Itoa(time.Now().Local().Year()) }</p>
+	</footer>
+}
+
+templ FooterBlock(title string) {
+	<div class="space-y-2">
+		@ui.Title_h3(title, "font-semibold lg:text-2xl")
+		{ children... }
+	</div>
+}
+
+templ FooterListItem(href, title string) {
+	<li><a href={templ.URL(href)} class="hover:text-gray-200">{title}</a></li>
+}

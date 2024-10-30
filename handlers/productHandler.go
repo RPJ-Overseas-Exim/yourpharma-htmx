@@ -2,13 +2,16 @@ package handlers
 
 import (
 	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/utils"
 	product_views "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/product"
+	products_views "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/products"
 	"github.com/labstack/echo/v4"
 )
 
 type ProductService interface{
     GetProducts() ([]*models.Product, error);
     GetProduct(productId string) (*models.Product, error);
+    GetFeaturedProducts() ([]*models.Product, error);
     PostProduct(*models.Product) error;
 }
 
@@ -20,6 +23,13 @@ func NewProductHandler (ps ProductService) *ProductHandler{
     return &ProductHandler{
         ProductService: ps,
     }
+}
+
+func (ph *ProductHandler) handleAllProducts(c echo.Context) error {
+    products, err := ph.ProductService.GetProducts()
+    utils.HandleError(err, "Error while fetching all products.")
+    comp := products_views.AllProducts(products)
+    return renderTempl(c, 200, comp)
 }
 
 func (ph *ProductHandler)  singleProductHandler(c echo.Context) error {

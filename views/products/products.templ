@@ -1,0 +1,13 @@
+package products_views
+
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components"
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
+
+templ AllProducts(products []*models.Product) {
+    @layouts.Base("Products | YP"){
+        <section id="products" class="my-8">
+            @components.Cards(products)
+        </section>
+    }
+}

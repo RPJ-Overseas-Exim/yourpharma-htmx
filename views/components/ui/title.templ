@@ -3,9 +3,9 @@ package ui
 import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/globs"
 
 templ Title_h2(title string, class string){
-   <h2 class={globs.Merger.Merge("text-2xl lg:text-4xl mb-4 font-bold " + class)}>{ title }</h2>
+   <h2 class={globs.Merger.Merge("text-xl lg:text-2xl mb-4 font-bold " + class)}>{ title }</h2>
 }
 
 templ Title_h3(title string, class string){
-   <h2 class={globs.Merger.Merge("text-xl lg:text-2xl mb-2 " + class)}>{ title }</h2>
+   <h2 class={globs.Merger.Merge("text-lg lg:text-xl mb-2 " + class)}>{ title }</h2>
 }
