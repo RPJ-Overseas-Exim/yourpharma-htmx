@@ -46,7 +46,7 @@ templ Card(card *models.Product) {
 				}
 				@ui.ButtonDiv(`border-[3px]
                 w-full border-green-600 bg-green-600 hover:border-green-700
-                hover:bg-green-700 active:bg-green-700 focus:bg-green-700`) {
+                hover:bg-green-700 active:bg-green-700 focus:bg-green-700 text-white`) {
 					<button type="button" dialog-id={"buy-now-dialog-" + card.Id} class="buy-now-btn">
 						Buy Now
 					</button>
@@ -77,8 +77,8 @@ templ Card(card *models.Product) {
 							}
 						}
 					</div>
-					@ui.ButtonDiv("bg-green-600 hover:bg-green-700 text-white") {
-						<button type="submit" class="w-full h-full text-center">Buy Now</button>
+					@ui.ButtonDiv("bg-green-600 hover:bg-green-700") {
+						<button type="submit" class="w-full h-full text-white text-center">Buy Now</button>
 					}
 				</form>
 			</div>

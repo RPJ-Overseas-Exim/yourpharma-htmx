@@ -220,7 +220,7 @@ func Card(card *models.Product) templ.Component {
 		})
 		templ_7745c5c3_Err = ui.ButtonDiv(`border-[3px]
                 w-full border-green-600 bg-green-600 hover:border-green-700
-                hover:bg-green-700 active:bg-green-700 focus:bg-green-700`).Render(templ.WithChildren(ctx, templ_7745c5c3_Var13), templ_7745c5c3_Buffer)
+                hover:bg-green-700 active:bg-green-700 focus:bg-green-700 text-white`).Render(templ.WithChildren(ctx, templ_7745c5c3_Var13), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -363,7 +363,7 @@ func Card(card *models.Product) templ.Component {
 				}
 				return templ_7745c5c3_Err
 			})
-			templ_7745c5c3_Err = ui.ButtonDiv("bg-green-600 hover:bg-green-700 text-white").Render(templ.WithChildren(ctx, templ_7745c5c3_Var22), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = ui.ButtonDiv("bg-green-600 hover:bg-green-700").Render(templ.WithChildren(ctx, templ_7745c5c3_Var22), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

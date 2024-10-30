@@ -19,6 +19,6 @@
 </button></div><form class=\"space-y-2 text-lg\" action=\"
 \" method=\"GET\"><div class=\"pl-4 mb-4\">
 </div>
-<button type=\"submit\" class=\"w-full h-full text-center\">Buy Now</button>
+<button type=\"submit\" class=\"w-full h-full text-white text-center\">Buy Now</button>
 </form></div>
 </div>
