@@ -1,0 +1,15 @@
+package ui
+
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/icons"
+
+templ ThemeSwitch() {
+    <button type="button" class="theme-switch p-2 border border-border rounded-md">
+        <div class="dark:hidden">
+            @icons.Sun("16")
+        </div>
+
+        <div class="hidden dark:inline-block">
+            @icons.Moon("16")
+        </div>
+    </button>
+}

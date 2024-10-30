@@ -1,0 +1,10 @@
+package terms_and_conditions_views
+
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/static"
+
+templ TermsAndConditions() {
+    @layouts.Base("Terms and Conditions | YP"){
+        @components_static.FooterPage("terms-and-conditions", "/static/images/pills.webp", "Terms and Conditions")
+    }
+}

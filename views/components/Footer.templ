@@ -7,21 +7,21 @@ import (
 )
 
 templ Footer() {
-	<footer class="p-16 lg:px-32 lg:py-16 bg-green-700 mt-16">
+	<footer class="p-16 lg:px-32 lg:py-16 bg-green-700 mt-16 text-white">
 		@ui.Title_h2("YourPharma", "lg:text-3xl")
 		<hr class="border-t border-muted-foreground"/>
-		<div class="flex justify-start gap-8 items-start my-4">
+		<div class="flex justify-start gap-16 items-start my-4 flex-wrap">
 			@FooterBlock("Contact") {
-				<ul class="pl-2 lg:text-lg space-y-1">
+				<ul class="lg:text-lg space-y-1">
                     @FooterListItem("mailto:benzosupplies.usatousa@gmail.com", "benzosupplies.usatousa@gmail.com")
                     @FooterListItem("#", "Messenger")
 				</ul>
 			}
 			@FooterBlock("Other Links") {
-				<ul class="pl-2 lg:text-lg space-y-1">
+				<ul class="lg:text-lg space-y-1">
                     @FooterListItem("/privacy", "Privacy Policy")
                     @FooterListItem("/terms", "Terms and Conditions")
-                    @FooterListItem("/faq", "FAQs")
+                    // @FooterListItem("/faq", "FAQs")
 				</ul>
 			}
 		</div>
@@ -31,7 +31,7 @@ templ Footer() {
 
 templ FooterBlock(title string) {
 	<div class="space-y-2">
-		@ui.Title_h3(title, "font-semibold lg:text-2xl")
+		@ui.Title_h3(title, "font-semibold lg:text-xl")
 		{ children... }
 	</div>
 }

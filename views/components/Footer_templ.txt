@@ -1,8 +1,8 @@
-<footer class=\"p-16 lg:px-32 lg:py-16 bg-green-700 mt-16\">
-<hr class=\"border-t border-muted-foreground\"><div class=\"flex justify-start gap-8 items-start my-4\">
-<ul class=\"pl-2 lg:text-lg space-y-1\">
+<footer class=\"p-16 lg:px-32 lg:py-16 bg-green-700 mt-16 text-white\">
+<hr class=\"border-t border-muted-foreground\"><div class=\"flex justify-start gap-16 items-start my-4 flex-wrap\">
+<ul class=\"lg:text-lg space-y-1\">
 </ul>
-<ul class=\"pl-2 lg:text-lg space-y-1\">
+<ul class=\"lg:text-lg space-y-1\">
 </ul>
 </div><p class=\"text-center\">&copy;All rights reserved 
 </p></footer>

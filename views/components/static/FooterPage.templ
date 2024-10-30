@@ -1,0 +1,15 @@
+package components_static
+
+import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
+
+templ FooterPage(id, image, title string) {
+	<section id={ id } class="max-w-5xl mx-auto">
+		<div class="max-w-3xl mx-auto">
+			<img src={ image } alt={ id }/>
+		</div>
+        <div >
+            @ui.Title_h2(title, "text-green-500")
+            { children... }
+        </div>
+	</section>
+}

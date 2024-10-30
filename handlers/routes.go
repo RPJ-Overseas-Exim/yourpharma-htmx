@@ -41,6 +41,14 @@ func SetupRoutes(e *echo.Echo, homeHandler *HomeHandler, producthandler *Product
     e.POST("/order/:productId", func(c echo.Context) error {
         return orderHandler.handleOrderFormPost(c)
     })
+    
+    e.GET("/privacy", func(c echo.Context) error {
+        return RenderPrivacyPolicy(c)
+    })
+    
+    e.GET("/terms", func(c echo.Context) error {
+        return RenderTermsAndConditions(c)
+    })
 
 	return nil
 }

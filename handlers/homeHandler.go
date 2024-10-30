@@ -27,17 +27,17 @@ type HomeService interface{
 }
 
 type HomeHandler struct{
-    HomeService HomeService
+    ProductService ProductService
 }
 
-func NewHomeHandler(hs HomeService) *HomeHandler {
+func NewHomeHandler(hs ProductService) *HomeHandler {
     return &HomeHandler{
         hs,
     }
 }
 
 func (homeHandler *HomeHandler)homePageHandler(c echo.Context) error {
-	homeData, err := homeHandler.HomeService.GetFeaturedProducts()
+	homeData, err := homeHandler.ProductService.GetFeaturedProducts()
     if err!=nil{
         panic(err)
     }
