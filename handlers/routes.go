@@ -50,5 +50,9 @@ func SetupRoutes(e *echo.Echo, homeHandler *HomeHandler, producthandler *Product
         return RenderTermsAndConditions(c)
     })
 
+    e.GET("/about", func(c echo.Context) error{
+        return RenderAbout(c)
+    })
+
 	return nil
 }

@@ -582,33 +582,6 @@ video {
   --chart-5: 27 87% 67%;
 }
 
-.dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 240 5.9% 10%;
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 240 4.9% 83.9%;
-  --chart-1: 220 70% 50%;
-  --chart-2: 160 60% 45%;
-  --chart-3: 30 80% 55%;
-  --chart-4: 280 65% 60%;
-  --chart-5: 340 75% 55%;
-}
-
 body{
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
@@ -640,6 +613,10 @@ body{
 
 .top-0 {
   top: 0px;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .z-20 {
@@ -684,6 +661,10 @@ body{
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.ml-auto {
+  margin-left: auto;
 }
 
 .mt-16 {
@@ -738,6 +719,10 @@ body{
   height: 300px;
 }
 
+.h-dvh {
+  height: 100dvh;
+}
+
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
@@ -749,10 +734,6 @@ body{
 
 .h-screen {
   height: 100vh;
-}
-
-.h-4 {
-  height: 1rem;
 }
 
 .w-1\/2 {
@@ -784,40 +765,24 @@ body{
   width: 100vw;
 }
 
-.w-4 {
-  width: 1rem;
+.w-2\/3 {
+  width: 66.666667%;
 }
 
-.w-16 {
-  width: 4rem;
-}
-
-.w-8 {
-  width: 2rem;
-}
-
-.max-w-2xl {
-  max-width: 42rem;
-}
-
-.max-w-4xl {
-  max-width: 56rem;
-}
-
-.max-w-xl {
-  max-width: 36rem;
+.w-2\/4 {
+  width: 50%;
 }
 
 .max-w-3xl {
   max-width: 48rem;
 }
 
-.max-w-6xl {
-  max-width: 72rem;
-}
-
 .max-w-5xl {
   max-width: 64rem;
+}
+
+.max-w-xl {
+  max-width: 36rem;
 }
 
 .shrink-0 {
@@ -906,6 +871,12 @@ body{
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -986,6 +957,10 @@ body{
   background-color: hsl(var(--background) / 50%);
 }
 
+.bg-background-transparent-md {
+  background-color: hsl(var(--background) / 70%);
+}
+
 .bg-background-transparent-sm {
   background-color: hsl(var(--background) / 90%);
 }
@@ -1062,16 +1037,12 @@ body{
   padding-left: 1rem;
 }
 
-.pt-4 {
-  padding-top: 1rem;
-}
-
-.pl-2 {
-  padding-left: 0.5rem;
-}
-
 .pl-8 {
   padding-left: 2rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .text-center {
@@ -1169,6 +1140,12 @@ body{
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
+.backdrop-blur-sm {
+  --tw-backdrop-blur: blur(4px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
 .transition {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -1243,15 +1220,63 @@ body{
   transform:translate(0, 0);
 }
 
-/*<div*/
+/* Always load the dark variables */
 
-/*	class={ `drop-border absolute z-10 top-0 left-0 bottom-0 right-0 */
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+}
 
-/*         w-full transition duration-600 rounded-md h-full transform */
+/* Always load modal styles as well as navbar styles */
 
-/*         translate-x-4 translate-y-4 border-2 border-green-500` }*/
+.nav-sidebar-menu{
+  transform: translateX(100%);
+  transition: transform 600ms ease-out;
+}
 
-/*></div>*/
+.nav-sidebar-menu-open {
+  transform: translateX(0);
+}
+
+.nav-sidebar-list{
+  border: 4px solid hsl(var(--border));
+  border-right: 0;
+  border-radius: .5em 0 0 .5em;
+}
+
+.modal-open{
+  position: fixed;
+  width:100%;
+  overflow:hidden;
+}
+
+@media only screen and (max-width:64rem){
+  .modal-open{
+    position: absolute;
+  }
+}
 
 .hover\:border-green-700:hover {
   --tw-border-opacity: 1;
@@ -1290,6 +1315,10 @@ body{
 .hover\:text-sky-500:hover {
   --tw-text-opacity: 1;
   color: rgb(14 165 233 / var(--tw-text-opacity));
+}
+
+.hover\:underline:hover {
+  text-decoration-line: underline;
 }
 
 .focus\:bg-green-700:focus {
@@ -1356,6 +1385,10 @@ body{
     display: flex;
   }
 
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:w-1\/2 {
     width: 50%;
   }
@@ -1388,6 +1421,14 @@ body{
 @media (min-width: 1024px) {
   .lg\:inline-block {
     display: inline-block;
+  }
+
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:hidden {
+    display: none;
   }
 
   .lg\:bg-background-transparent-lg {
@@ -1449,8 +1490,5 @@ body{
   .xl\:w-4\/5 {
     width: 80%;
   }
-
-  .xl\:justify-between {
-    justify-content: space-between;
-  }
 }
+
