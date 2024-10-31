@@ -24,6 +24,7 @@ func NewOrder(id, customerId, productId string, quantity, amount int) *Order{
         Quantity: quantity,
         Amount: amount,
         Status: "Active",
+        Origin: "Website",
         CreatedAt: time.Now(),
         UpdatedAt: time.Now(),
     }
