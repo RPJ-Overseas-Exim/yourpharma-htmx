@@ -740,6 +740,10 @@ body{
   width: 50%;
 }
 
+.w-2\/3 {
+  width: 66.666667%;
+}
+
 .w-32 {
   width: 8rem;
 }
@@ -763,14 +767,6 @@ body{
 
 .w-screen {
   width: 100vw;
-}
-
-.w-2\/3 {
-  width: 66.666667%;
-}
-
-.w-2\/4 {
-  width: 50%;
 }
 
 .max-w-3xl {
@@ -885,6 +881,10 @@ body{
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .rounded-full {
@@ -1253,7 +1253,7 @@ body{
 
 .nav-sidebar-menu{
   transform: translateX(100%);
-  transition: transform 600ms ease-out;
+  transition: transform 600ms ease-in;
 }
 
 .nav-sidebar-menu-open {
@@ -1421,14 +1421,6 @@ body{
 @media (min-width: 1024px) {
   .lg\:inline-block {
     display: inline-block;
-  }
-
-  .lg\:flex {
-    display: flex;
-  }
-
-  .lg\:hidden {
-    display: none;
   }
 
   .lg\:bg-background-transparent-lg {

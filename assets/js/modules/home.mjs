@@ -21,11 +21,13 @@ if (dialogBackgrounds) {
 if (projectCardsImage) {
     projectCardsImage.forEach(cardImg => {
         cardImg.addEventListener("mouseenter", projectCardMouseOver)
+
         cardImg.addEventListener("touchstart", projectCardTouchIn)
+        cardImg.addEventListener("touchend", () => projectCardMouseOut(cardImg))
+
         const viewId = `.img-view-overlay-${cardImg.id.replace("img-", "")}`
         const view = document.querySelector(viewId)
         view.addEventListener("mouseleave", () => projectCardMouseOut(cardImg))
-        view.addEventListener("touchend", () => projectCardMouseOut(cardImg))
     })
 }
 
@@ -50,19 +52,21 @@ export function openDialog(dialogId) {
 function projectCardMouseOver(e) {
     const cardImg = e.target
     cardImg.style.transform = "scale(1.25)"
-    cardImg.style.filter = "blur(3px)"
 
     const view = document.querySelector(`.img-view-overlay-${e.target.id.replace("img-", "")}`)
-    if (view.classList.contains("hidden"))
+    if (view.classList.contains("hidden")){
+        view.style.backdropFilter = "blur(3px)"
         view.classList.remove("hidden")
+    }
 }
 
 function projectCardMouseOut(cardImg) {
     cardImg.style.transform = "scale(1)"
-    cardImg.style.filter = "blur(0)"
 
     const view = document.querySelector(`.img-view-overlay-${cardImg.id.replace("img-", "")}`)
+
     if (!view.classList.contains("hidden")) {
+        view.style = ""
         view.classList.add("hidden")
     }
 }
@@ -70,9 +74,5 @@ function projectCardMouseOut(cardImg) {
 function projectCardTouchIn(e) {
     const cardImg = e.target
     cardImg.style.transform = "scale(1.25)"
-
-    const view = document.querySelector(`.img-view-overlay-${e.target.id.replace("img-", "")}`)
-    if (view.classList.contains("hidden"))
-        view.classList.remove("hidden")
 }
 
