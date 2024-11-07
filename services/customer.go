@@ -14,8 +14,8 @@ func (cs *CustomerService) PostCustomer(id, name, email string, number *int, add
 	customer := models.NewCustomer(id, name, email, number, address)
 	err := cs.dbConn.
 		Clauses(clause.OnConflict{
-			Columns:   []clause.Column{{Name: "id"}},
-			DoUpdates: clause.Assignments(map[string]interface{}{"email": email}),
+            Columns:   []clause.Column{{Name:"email"}},
+            DoUpdates: clause.Assignments(map[string]interface{}{"id":id, "email": email}),
 		}).
 	Create(&customer).Error
 	return err
