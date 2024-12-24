@@ -58,7 +58,7 @@ func About() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 1)
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<p>Welcome to YourPharma, your trusted partner in health and wellness. We are dedicated to providing our community with high-quality prescription medications and personalized care. Our experienced pharmacists are here to offer expert advice, ensuring you understand your medications and feel confident in your treatment plan.</p><p>At YourPharma, we prioritize your health and convenience. We offer a wide range of prescription medications, over-the-counter products, and health supplements, all in a welcoming environment. Our commitment to exceptional customer service means we take the time to listen to your needs and answer your questions. In addition to our extensive product selection, we provide services such as medication synchronization, health consultations, and immunizations, helping you manage your health more effectively.</p><p>Your well-being is our mission. Visit us today and experience the difference at YourPharma!</p>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
