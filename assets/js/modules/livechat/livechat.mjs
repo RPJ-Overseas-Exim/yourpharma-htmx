@@ -1,17 +1,17 @@
 import { liveChatStatic, loadMore } from "./livechat-html.mjs"
 import { styles } from "./livechat-styles.mjs"
 
+export const SocketUrl = "livechat-admin.worldwideclothing.in"
 initializeLiveChat()
+//export const SocketUrl = "192.168.1.3:8181"
 
 const liveChatEmailForm = document.querySelector("#live-chat__popup")
-export const SocketUrl = "localhost:8181"
-//export const SocketUrl = "192.168.1.3:8181"
 
 if(liveChatEmailForm){
     if(localStorage.getItem("email")){
         initializeSocket(localStorage.getItem("email"))
     }else{
-        console.log("no email found")
+        //console.log("no email found")
         liveChatEmailForm.classList.remove("live-chat__popup-hidden")
 
         liveChatEmailForm.addEventListener("submit", (e)=>{
@@ -59,14 +59,16 @@ function initializeSocket(email){
 
         ws += SocketUrl + "/ws?email=" + email
 
-        try{
-            conn = new WebSocket(ws)
-            console.log("Connected")
-        }catch(e){
+        conn = new WebSocket(ws)
+        //console.log("Connected")
+        liveChatEmailForm.classList.add("live-chat__popup-hidden")
+
+        conn.onerror = ()=>{
             alert("Could not connect to chat please try a different email or refresh the page")
+            localStorage.removeItem("email")
+            liveChatEmailForm.classList.remove("live-chat__popup-hidden")
             console.log(e)
         }
-        liveChatEmailForm.classList.add("live-chat__popup-hidden")
 
         conn.onclose = ()=>{
             appendLog("Connection Closed", false)
@@ -106,7 +108,7 @@ function initializeSocket(email){
 }
 
 
-function initializeLiveChat(){
+async function initializeLiveChat(){
     document.head.insertAdjacentHTML("beforeend", styles)
     document.body.insertAdjacentHTML("beforeend", liveChatStatic)
 
@@ -126,5 +128,12 @@ function initializeLiveChat(){
         if (liveChat) {
             liveChat.classList.toggle("live-chat__active")
         }
+    }
+
+    const onlineIndicator = document.querySelector("#live-chat__online")
+    const response = await (await fetch(location.protocol + "//" + SocketUrl + "/online")).text()
+
+    if(response =="online" && onlineIndicator){
+        onlineIndicator.classList.add("live-chat__online-active")
     }
 }
