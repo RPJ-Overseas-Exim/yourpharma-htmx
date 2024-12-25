@@ -129,9 +129,14 @@ async function initializeLiveChat(){
             liveChat.classList.toggle("live-chat__active")
         }
     }
-
+    let response = ""
     const onlineIndicator = document.querySelector("#live-chat__online")
-    const response = await (await fetch(location.protocol + "//" + SocketUrl + "/online")).text()
+
+    try{
+         response = await (await fetch(location.protocol + "//" + SocketUrl + "/online")).text()
+    }catch(e){
+        console.log(e)
+    }
 
     if(response =="online" && onlineIndicator){
         onlineIndicator.classList.add("live-chat__online-active")
