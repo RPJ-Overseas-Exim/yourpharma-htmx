@@ -44,7 +44,7 @@ export const liveChatStatic = `
 export const loadMore = (url) => (`
     <input 
     type="button" 
-    hx-get="http://${url}/messages/${localStorage.getItem("email")}?offset=0"
+    hx-get="${url}/messages/${localStorage.getItem("email")}?offset=0"
     id="live-chat__load-more" hx-swap="outerHTML"
     value="Load More" />
 `)

@@ -35,7 +35,7 @@ function initializeSocket(email){
         msgOutput = document.querySelector("#live-chat__messages")
 
     if (msgForm){
-        msgOutput.insertAdjacentHTML("afterbegin", loadMore(SocketUrl))
+        msgOutput.insertAdjacentHTML("afterbegin", loadMore(location.protocol + "//" +  SocketUrl))
         msgForm.addEventListener("submit", (e)=>{
             e.preventDefault()
             const message =  (new FormData(e.target)).get("message-input")
