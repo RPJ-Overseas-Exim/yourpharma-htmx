@@ -30,18 +30,21 @@ export const liveChatStatic = `
         </section>
 
         <button type="button" id="live-chat__toggle">
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-more"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+            <div id="live-chat__toggle-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-more"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+            </div>
+            <div id="live-chat__toggle-online">
+                <span></span>
             </div>
         </button>
 
     </div>
 `
 
-export const loadMore = () => (`
+export const loadMore = (url) => (`
     <input 
     type="button" 
-    hx-get="http://localhost:8181/messages/${localStorage.getItem("email")}?offset=0"
+    hx-get="http://${url}/messages/${localStorage.getItem("email")}?offset=0"
     id="live-chat__load-more" hx-swap="outerHTML"
     value="Load More" />
 `)

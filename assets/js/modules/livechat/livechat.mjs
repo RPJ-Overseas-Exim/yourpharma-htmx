@@ -2,8 +2,8 @@ import { liveChatStatic, loadMore } from "./livechat-html.mjs"
 import { styles } from "./livechat-styles.mjs"
 
 export const SocketUrl = "livechat-admin.worldwideclothing.in"
+//export const SocketUrl = "localhost:8181"
 initializeLiveChat()
-//export const SocketUrl = "192.168.1.3:8181"
 
 const liveChatEmailForm = document.querySelector("#live-chat__popup")
 
@@ -35,7 +35,7 @@ function initializeSocket(email){
         msgOutput = document.querySelector("#live-chat__messages")
 
     if (msgForm){
-        msgOutput.insertAdjacentHTML("afterbegin", loadMore())
+        msgOutput.insertAdjacentHTML("afterbegin", loadMore(SocketUrl))
         msgForm.addEventListener("submit", (e)=>{
             e.preventDefault()
             const message =  (new FormData(e.target)).get("message-input")
@@ -88,6 +88,13 @@ function initializeSocket(email){
             }catch(_){
                 var messages = evt.data
                 appendLog(messages, false);
+            }finally{
+                const toggleOnlineIndicator = document.querySelector("#live-chat__toggle-online")
+
+                if(toggleOnlineIndicator){
+                    toggleOnlineIndicator.classList.add("live-chat__toggle-online-active")
+                }
+
             }
         }
 
@@ -114,6 +121,7 @@ async function initializeLiveChat(){
 
     const liveChatToggle = document.querySelector("#live-chat__toggle")
     const liveChatClose = document.querySelector("#live-chat__close")
+    const liveChatToggleIndicator = document.querySelector("#live-chat__toggle-online")
 
     if (liveChatToggle) {
         liveChatToggle.addEventListener("click", toggleChat)
@@ -127,6 +135,7 @@ async function initializeLiveChat(){
         const liveChat = document.querySelector("#live-chat")
         if (liveChat) {
             liveChat.classList.toggle("live-chat__active")
+            liveChatToggleIndicator.classList.remove("live-chat__toggle-online-active")
         }
     }
     let response = ""

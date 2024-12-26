@@ -61,14 +61,17 @@ export const styles = `
         }
 
         #live-chat__toggle, #live-chat__close{
-            height: 3em;
-            width: 3em;
+            height: 3.5em;
+            width: 3.5em;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
+
         #live-chat__close{
+            height: 3em;
+            width: 3em;
             position: relative;
             height: 1.4em;
             width: 1.4em;
@@ -86,6 +89,44 @@ export const styles = `
             background: hsl(var(--muted));
             box-shadow: 0 0 2px 0 hsl(var(--background));
             color: #84cc16;
+            overflow: visible;
+        }
+
+        #live-chat__toggle-online{
+            height: .8em;
+            width: .8em;
+            border-radius: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #22c55e;
+            display:none;
+        }
+
+        #live-chat__toggle-online span{
+            height: 100%;
+            width: 100%;
+            border-radius: 100%;
+            display:block;
+            background: hsl(142 71% 45% / .4);
+        }
+
+        #live-chat__toggle-online.live-chat__toggle-online-active {
+            display: block;
+        }
+
+        .live-chat__toggle-online-active span{
+            animation: .6s linear .4s infinite ping;
+        }
+
+        @keyframes ping{
+            from{
+                transfrom: scale(1, 1);
+            }
+
+            to{
+                transform: scale(1.5, 1.5);
+            }
         }
 
         #live-chat__popup{
@@ -191,5 +232,7 @@ export const styles = `
         #live-chat__load-more:hover{
             background: hsl(var(--muted-foreground));
         }
+
+
     </style>
 `
