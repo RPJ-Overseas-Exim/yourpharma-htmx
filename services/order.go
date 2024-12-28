@@ -19,13 +19,10 @@ func NewOrderService(dbConn *gorm.DB) *OrderService {
 	}
 }
 
-func (ordSer *OrderService) PostOrder(customerId, productId string, qty, amt int) error {
+func (ordSer *OrderService) PostOrder(customerId, email, name, productId string, qty, amt int) error {
 
     var product models.Product
     ordSer.dbConn.Select("name").First(&product, "id = ?", productId)
-
-    var customer models.Customer
-    ordSer.dbConn.Select("name", "email").First(&customer, "id = ?", customerId)
 
 	models.NewOrder(db.GenerateNanoid(), customerId, productId, qty, amt)
 
@@ -59,11 +56,11 @@ func (ordSer *OrderService) PostOrder(customerId, productId string, qty, amt int
     Your Pharma:- https://yourpharmastore.co.uk/
     Call at +1 (256)-472-1743
     Chat with us https://yp-messenger-next-one.vercel.app
-    Telegram @yourpharmausa`, customer.Name, product.Name)
+    Telegram @yourpharmausa`, name, product.Name)
 
     message := fmt.Sprintf(`Subject: Enquiry for product %[1]s\r\n\r\n%[2]s`, product.Name, body)
 
-    return utils.SendMail(customer.Email, message)
+    return utils.SendMail(email, message)
 }
 
 func (ordSer *OrderService) GetAmount(productId string, qty int) (int, error) {

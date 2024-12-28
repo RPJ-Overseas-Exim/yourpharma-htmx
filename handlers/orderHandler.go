@@ -13,7 +13,7 @@ import (
 )
 
 type OrderService interface {
-	PostOrder(customerId, products string, qty, amt int) error
+	PostOrder(customerId, name, email, products string, qty, amt int) error
 	GetAmount(productId string, qty int) (int, error)
 }
 
@@ -41,19 +41,17 @@ func (oh *OrderHandler) handleOrderForm(c echo.Context, qty int) error {
 	}
 	data, error := oh.ProductService.GetProduct(c.Param("productId"))
 	if error != nil {
-		panic(error)
+		return renderTempl(c, 400, components_order.ConfirmedOrderPage(false))
 	}
 	comp := order.OrderForm(data.Name, data.Id, qty)
 	return renderTempl(c, 200, comp)
 }
 
 func (oh *OrderHandler) handleOrderFormPost(c echo.Context) error {
-
 	name := c.FormValue("name")
 	email := c.FormValue("email")
     num,_ := strconv.Atoi(c.FormValue("number"))
     number  := &num
-    
 
 	address := c.FormValue("address")
 	paymentMethod := c.FormValue("payment-method")
@@ -64,21 +62,18 @@ func (oh *OrderHandler) handleOrderFormPost(c echo.Context) error {
 
 	if qtyErr != nil || name == "" || email == "" || paymentMethod == "" || productId == "" {
         log.Println("All fields not provided")
-		return renderTempl(c, 400, comp)
+		return renderTempl(c, 400, components_order.ConfirmedOrderPage(false))
 	}
 
 	amount, amountErr := oh.OrderService.GetAmount(productId, qty)
 
-
     customerId := db.GenerateNanoid()
 
     customerErr := oh.CustomerService.PostCustomer(customerId, name, email, number, &address)
-    orderErr := oh.OrderService.PostOrder(customerId, productId, qty, amount)
+    oh.OrderService.PostOrder(customerId, name, email, productId, qty, amount)
 
     utils.HandleError(amountErr, "No amount found for the given quantity")
     utils.HandleError(customerErr, "Customer could not be created")
-    utils.HandleError(orderErr, "Order couldn't be created")
-
 
 	comp = components_order.ConfirmedOrderPage(true)
 	return renderTempl(c, 200, comp)
