@@ -17,21 +17,17 @@ func NewProductService(dbConn *gorm.DB) *ProductService {
 
 func (ps *ProductService) GetProducts() ([]*models.Product, error) {
 	var products []*models.Product
-	err := ps.dbConn.Joins("INNER JOIN price_qties on price_qties.product_id=products.id").
-		Group("products.id").
-        Preload("PriceQty").
-	    Find(&products).Error
-
+	err := ps.dbConn.Model(&models.Product{}).Preload("PriceQty").Find(&products).Error
 	return products, err
 }
 
-func (ps *ProductService) GetFeaturedProducts() ([]*models.Product, error){
-    var products []*models.Product
-	err := ps.dbConn.Joins("INNER JOIN price_qties on price_qties.product_id=products.id").
-		Group("products.id").
-        Preload("PriceQty").
+func (ps *ProductService) GetFeaturedProducts() ([]*models.Product, error) {
+	var products []*models.Product
+	err := ps.dbConn.
+        Model(&models.Product{}).
+		Preload("PriceQty").
 		Limit(10).Find(&products).Error
-    return products, err
+	return products, err
 }
 
 func (ps *ProductService) PostProduct(product *models.Product) error {
@@ -42,9 +38,8 @@ func (ps *ProductService) GetProduct(productId string) (*models.Product, error) 
 	var product *models.Product
 
 	err := ps.dbConn.
-		Joins("INNER JOIN price_qties on price_qties.product_id=products.id").
+        Model(&models.Product{}).
 		Preload("PriceQty").
-		Group("products.id").
 		First(&product, "products.id = ?", productId).Error
 
 	return product, err

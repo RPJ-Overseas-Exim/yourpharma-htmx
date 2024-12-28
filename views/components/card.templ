@@ -36,18 +36,17 @@ templ Card(card *models.Product) {
 				<p class="text-sm font-semibold text-sky-500">${ strconv.Itoa(int(card.PriceQty[0].Price)) } / { strconv.Itoa(int(card.PriceQty[0].Qty)) }</p>
 			</div>
 			<div class="flex items-center gap-2">
-				@ui.ButtonDiv(`border-[3px]
-                w-full border-sky-600 text-sky-600 
-                hover:text-foreground active:text-foreground focus:text-foreground
+				@ui.ButtonDiv(`
+                w-full text-sky-600 hover:text-foreground active:text-foreground focus:text-foreground
                 hover:bg-sky-600 active:bg-sky-600 focus:bg-sky-600`) {
-					<a class="w-full text-center h-full" href={ templ.URL("/product/" + card.Id) }>
+					<a class="p-2 rounded-md border-[3px] p-2 border-sky-600 w-full text-center h-full" href={ templ.URL("/product/" + card.Id) }>
 						View 
 					</a>
 				}
 				@ui.ButtonDiv(`border-[3px]
                 w-full border-green-600 bg-green-600 hover:border-green-700
                 hover:bg-green-700 active:bg-green-700 focus:bg-green-700 text-white`) {
-					<button type="button" dialog-id={"buy-now-dialog-" + card.Id} class="buy-now-btn">
+					<button type="button" dialog-id={"buy-now-dialog-" + card.Id} class="p-2 buy-now-btn">
 						Buy Now
 					</button>
 				}
@@ -57,8 +56,8 @@ templ Card(card *models.Product) {
 			<div class="h-full">
 
 				<div class="flex justify-between items-center">
-					@ui.Title_h3(card.Name, "")
-                    <button type="button" dialog-id={"buy-now-dialog-" + card.Id} class="buy-now-close-btn">
+					@ui.Title_h3(card.Name, " capitalize")
+                    <button type="button" dialog-id={"buy-now-dialog-" + card.Id} class="buy-now-close-btn p-2">
                         @icons.Cross("18")
                     </button>
 				</div>
@@ -78,7 +77,7 @@ templ Card(card *models.Product) {
 						}
 					</div>
 					@ui.ButtonDiv("bg-green-600 hover:bg-green-700") {
-						<button type="submit" class="w-full h-full text-white text-center">Buy Now</button>
+						<button type="submit" class="p-2 w-full h-full text-white text-center">Buy Now</button>
 					}
 				</form>
 			</div>

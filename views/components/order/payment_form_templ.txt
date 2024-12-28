@@ -1,0 +1,5 @@
+<form id=\"payment-form\" class=\"space-y-2 grow-1 shrink-0 w-full p-4\">
+<div class=\"flex justify-center items-center border border-border rounded-md p-2\"><select name=\"payment-method\" id=\"payment-method\" class=\"text-foreground bg-background\"><optgroup label=\"Payment Method\"><option value=\"PayPal\">PayPal</option> <option value=\"Moneygram\">Moneygram</option> <option value=\"Bitcoin\">BitCoin</option> <option value=\"Credit Card\">Credit Card</option> <option value=\"Zelle\">Zelle</option> <option value=\"Venmo\">Venmo</option> <option value=\"Cash App\">Cash App</option> <option value=\"Western Union\">Western Union</option></optgroup></select></div><div class=\"pt-4 flex gap-2\">
+<button type=\"button\" data-page=\"1\" class=\"w-full h-full text-center prev-submit\">Prev</button>
+<button id=\"payment-form-submit\" type=\"submit\" data-page=\"1\" class=\"w-full h-full text-center next-submit\">Next</button>
+</div></form>

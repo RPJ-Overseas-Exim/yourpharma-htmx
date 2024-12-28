@@ -587,6 +587,10 @@ body{
   color: hsl(var(--foreground));
 }
 
+svg{
+  display:block;
+}
+
 .fixed {
   position: fixed;
 }

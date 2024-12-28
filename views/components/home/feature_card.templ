@@ -11,6 +11,7 @@ templ FeatureCard(title, image , extension string) {
 			<img
 				src={ fmt.Sprintf("/static/images/%[1]s.%[2]s", image, extension) }
 				alt={ image }
+                loading="lazy"
 				class="w-full h-full object-cover"
 			/>
 			<div class="absolute p-4 bottom-0 left-0 w-fit h-fit bg-background-transparent-lg mx-auto backdrop-blur-md">

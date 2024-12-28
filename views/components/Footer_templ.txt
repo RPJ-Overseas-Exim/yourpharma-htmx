@@ -1,0 +1,13 @@
+<footer class=\"p-16 lg:px-32 lg:py-16 bg-green-700 mt-16 text-white\">
+<hr class=\"border-t border-muted-foreground\"><div class=\"flex justify-start gap-16 items-start my-4 flex-wrap\">
+<ul class=\"lg:text-lg space-y-1\">
+</ul>
+<ul class=\"lg:text-lg space-y-1\">
+</ul>
+</div><p class=\"text-center\">&copy;All rights reserved 
+</p></footer>
+<div class=\"space-y-2\">
+</div>
+<li><a href=\"
+\" class=\"hover:text-gray-200\">
+</a></li>

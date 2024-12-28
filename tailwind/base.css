@@ -36,6 +36,10 @@
       color: hsl(var(--foreground));
   }
 
+  svg{
+      display:block;
+  }
+
 }
 
 @layer utilities{
