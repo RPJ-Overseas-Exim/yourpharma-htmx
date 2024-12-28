@@ -1,2 +1,0 @@
-<section id=\"products\" class=\"my-8\">
-</section>

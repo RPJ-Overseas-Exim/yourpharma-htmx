@@ -59,7 +59,7 @@ func TermsAndConditions() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 1)
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"space-y-2\"><p>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -67,7 +67,7 @@ func TermsAndConditions() templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 2)
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("We may collect two basic types of information through the Online Services: (1) information you provide directly to us and (2) information that is automatically provided to us or collected through your use of our Online Services. Such information identifies you, such as your full name, telephone number, email address, postal address, certain account numbers, and other information described in this Privacy Policy. When you use the Online Services, you may provide certain information directly to us, including when you allow us to obtain information about you from other sources. Information also includes certain automatically-collected information. We may obtain information that is automatically collected through the Online Services. The automatically-collected information may include demographic, de-identified, aggregated, or certain information collected automatically through your device, such as technical information about your device, web browser information, and server log files collected by us or provided by you. You may limit the Information you provide or make available to us if you want to; however, that may limit your ability to access or use certain functions of the Online Services or to request certain services or information.</p><p>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -75,7 +75,7 @@ func TermsAndConditions() templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 3)
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("We may use your Information:<ul class=\"pl-8 list-disc\"><li>To respond to an email or particular request from you</li><li>To communicate with you</li><li>To provide you with content, services, and functionality through our Online Services or other services we offer</li><li>To process an application for a product or service as requested by you.</li><li>To authenticate you on any portion of our Online Services.</li><li>To administer surveys and promotions.</li><li>To personalise your experience with our Online Services.</li><li>To provide you with informational or promotional offers, as permitted by law, that may be useful to you, such as information about our products or services.</li><li>To perform analytics and to improve our products, Online Services, and advertising.</li><li>To facilitate the provision of software updates and product support.</li><li>To improve products and other services related to Online Services.</li><li>To comply with applicable laws, regulations, and legal processes.</li><li>To protect someone's health, safety, or welfare.</li><li>To protect our rights, the rights of affiliates, or to take appropriate legal action, such as to enforce our Terms of Use.</li><li>To keep a record of our transactions and communications.</li></ul>As otherwise necessary or useful for us to conduct our business, so long as such use is permitted by law or for any other purpose with your consent</p><p>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -83,7 +83,7 @@ func TermsAndConditions() templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 4)
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("Any or all of the above Data may be required by us from time to time to provide information relating to Your Pharma Stores and to work on the experience regarding our website or mobile application. Specifically, Data may be used by us for the following reasons: Carry out our obligations arisin g from any contract entered into between you and us.<ul class=\"pl-8 list-disc\"><li>To communicate with you about products and/or services offered by us.</li><li>To provide you with offers (including financial products and/or services), personalized services, and recommendations and improve your experience on our website and mobile application.</li><li>To operate, evaluate, and improve our business, website, and mobile application.Generate aggregated data to prepare insights to enable us to understand customer behaviour, patterns, and trends with a view to learning more about your preferences or other characteristics;Provide privileges and benefits to you, marketing, and promotional campaigns based on your profile.</li><li>To get in touch with you by responding to your requests, questions, feedback, claims, or disputes to improve our services.</li><li>To inform you about the latest offer and rewards on Your Pharma Stores.</li><li>To enforce the terms of use of our website and mobile application.</li><li>To Protect you From fraud, illegal activity, harm, financial loss, and other legal or information security risks.</li></ul>We treat these inferences as personal information under applicable law. According to applicable law, we will only use your personal information (including sensitive personal information) with your consent, as necessary, to provide you with products and services.</p>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -91,7 +91,7 @@ func TermsAndConditions() templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 5)
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}

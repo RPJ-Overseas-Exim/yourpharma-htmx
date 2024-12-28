@@ -1,3 +1,0 @@
-<button type=\"button\" class=\"theme-switch p-2 border border-border rounded-md\"><div class=\"dark:hidden\">
-</div><div class=\"hidden dark:inline-block\">
-</div></button>
