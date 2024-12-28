@@ -24,7 +24,7 @@ func (ordSer *OrderService) PostOrder(customerId, email, name, productId string,
     var product models.Product
     ordSer.dbConn.Select("name").First(&product, "id = ?", productId)
 
-	models.NewOrder(db.GenerateNanoid(), customerId, productId, qty, amt)
+    newOrder := models.NewOrder(db.GenerateNanoid(), customerId, productId, qty, amt)
 
     body := fmt.Sprintf(`
     Hi %[1]s,
@@ -60,7 +60,8 @@ func (ordSer *OrderService) PostOrder(customerId, email, name, productId string,
 
     message := fmt.Sprintf(`Subject: Enquiry for product %[1]s\r\n\r\n%[2]s`, product.Name, body)
 
-    return utils.SendMail(email, message)
+    utils.SendMail(email, message)
+    return ordSer.dbConn.Create(&newOrder).Error
 }
 
 func (ordSer *OrderService) GetAmount(productId string, qty int) (int, error) {

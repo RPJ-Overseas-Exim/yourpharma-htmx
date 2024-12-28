@@ -70,10 +70,11 @@ func (oh *OrderHandler) handleOrderFormPost(c echo.Context) error {
     customerId := db.GenerateNanoid()
 
     customerErr := oh.CustomerService.PostCustomer(customerId, name, email, number, &address)
-    oh.OrderService.PostOrder(customerId, name, email, productId, qty, amount)
+    orderErr := oh.OrderService.PostOrder(customerId, name, email, productId, qty, amount)
 
     utils.HandleError(amountErr, "No amount found for the given quantity")
     utils.HandleError(customerErr, "Customer could not be created")
+    utils.HandleError(orderErr, "Order could not be created")
 
 	comp = components_order.ConfirmedOrderPage(true)
 	return renderTempl(c, 200, comp)
