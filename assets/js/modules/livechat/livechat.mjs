@@ -1,5 +1,4 @@
-import { liveChatStatic, loadMore } from "./livechat-html.mjs"
-import { styles } from "./livechat-styles.mjs"
+import { liveChatStatic, loadMore, styles } from "./livechat-html.mjs"
 
 export const SocketUrl = "livechat-admin.worldwideclothing.in"
 //export const SocketUrl = "localhost:8181"
@@ -25,7 +24,7 @@ if(liveChatEmailForm){
     }
 }
 
-function initializeSocket(email){
+async function initializeSocket(email){
     if(!window["WebSocket"]){
         alert("Your browser does not support web sockets")
         return
@@ -112,10 +111,22 @@ function initializeSocket(email){
         msgDiv.textContent = msg
         msgOutput.appendChild(msgDiv)
     }
+
+    let response = ""
+    const onlineIndicator = document.querySelector("#live-chat__online")
+
+    try{
+         response = await (await fetch(location.protocol + "//" + SocketUrl + "/online")).text()
+    }catch(e){
+        console.log(e)
+    }
+
+    if(response =="online" && onlineIndicator){
+        onlineIndicator.classList.add("live-chat__online-active")
+    }
 }
 
-
-async function initializeLiveChat(){
+function initializeLiveChat(){
     document.head.insertAdjacentHTML("beforeend", styles)
     document.body.insertAdjacentHTML("beforeend", liveChatStatic)
 
@@ -137,17 +148,5 @@ async function initializeLiveChat(){
             liveChat.classList.toggle("live-chat__active")
             liveChatToggleIndicator.classList.remove("live-chat__toggle-online-active")
         }
-    }
-    let response = ""
-    const onlineIndicator = document.querySelector("#live-chat__online")
-
-    try{
-         response = await (await fetch(location.protocol + "//" + SocketUrl + "/online")).text()
-    }catch(e){
-        console.log(e)
-    }
-
-    if(response =="online" && onlineIndicator){
-        onlineIndicator.classList.add("live-chat__online-active")
     }
 }

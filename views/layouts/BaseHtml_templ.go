@@ -62,7 +62,7 @@ func Base(title string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<link rel=\"stylesheet\" href=\"/static/css/main.css\" type=\"text/css\"><script src=\"/static/js/lib/htmx.min.js\"></script> <script src=\"/static/js/main.mjs\" type=\"module\" defer></script> <meta name=\"htmx-config\" content=\"{&#34;selfRequestsOnly&#34;:false}\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<link rel=\"stylesheet\" href=\"/static/css/main.css\" type=\"text/css\"><script src=\"/static/js/main.mjs\" type=\"module\" defer></script> <meta name=\"htmx-config\" content=\"{&#34;selfRequestsOnly&#34;:false}\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
