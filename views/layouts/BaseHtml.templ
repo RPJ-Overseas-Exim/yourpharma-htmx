@@ -11,18 +11,27 @@ templ Base(title string) {
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, minimum-scale=1.0"/>
 			<title>{ title }</title>
-            @handleOnce.Once(){
-            <link rel="stylesheet" href="/static/css/main.css" type="text/css" >
-            <script src="/static/js/main.mjs" type="module" defer></script>
-            <meta name="htmx-config" content='{"selfRequestsOnly":false}'>
-            }
+			@handleOnce.Once() {
+				<link rel="stylesheet" href="/static/css/main.css" type="text/css"/>
+				<script src="/static/js/main.mjs" type="module" defer></script>
+				<meta name="htmx-config" content='{"selfRequestsOnly":false}'/>
+			}
 		</head>
 		<body class="overflow-x-hidden">
-                @components.Navbar()
-                <div class="px-4 md:px-10 lg:px-20">
-                    { children... }
-                </div>
-                @components.Footer()
+			<script>
+                const theme = localStorage.getItem("theme")
+                const bodyClassList = document.body.classList
+                if (theme === "light") {
+                    bodyClassList.remove("dark")
+                } else {
+                    bodyClassList.add("dark")
+                }
+            </script>
+			@components.Navbar()
+			<div class="px-4 md:px-10 lg:px-20">
+				{ children... }
+			</div>
+			@components.Footer()
 		</body>
 	</html>
 }

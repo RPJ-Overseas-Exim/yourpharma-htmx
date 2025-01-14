@@ -72,7 +72,7 @@ func Base(title string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</head><body class=\"overflow-x-hidden\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</head><body class=\"overflow-x-hidden\"><script>\n                const theme = localStorage.getItem(\"theme\")\n                const bodyClassList = document.body.classList\n                if (theme === \"light\") {\n                    bodyClassList.remove(\"dark\")\n                } else {\n                    bodyClassList.add(\"dark\")\n                }\n            </script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

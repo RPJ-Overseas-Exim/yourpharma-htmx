@@ -14,7 +14,7 @@ templ Footer() {
 			@FooterBlock("Contact") {
 				<ul class="lg:text-lg space-y-1">
                     @FooterListItem("mailto:benzosupplies.usatousa@gmail.com", "benzosupplies.usatousa@gmail.com")
-                    @FooterListItem("#", "Messenger")
+                    @FooterListItem("https://yp-messenger-next-one.vercel.app/", "Messenger")
 				</ul>
 			}
 			@FooterBlock("Other Links") {
@@ -37,5 +37,5 @@ templ FooterBlock(title string) {
 }
 
 templ FooterListItem(href, title string) {
-	<li><a href={templ.URL(href)} class="hover:text-gray-200">{title}</a></li>
+	<li><a href={templ.URL(href)} target="_blank" class="hover:text-gray-200">{title}</a></li>
 }
