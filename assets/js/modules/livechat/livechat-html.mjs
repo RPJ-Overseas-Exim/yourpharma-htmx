@@ -14,7 +14,9 @@ export const liveChatStatic = `
 
             <form id="live-chat__input-box">
                 <textarea type="text" class="message-input" name="message-input" required></textarea>
-                <button id="live-chat__send" type="submit">Send</button>
+                <button id="live-chat__send" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+                </button>
             </form>
 
             <div id="live-chat__popup" class="live-chat__popup-hidden">
@@ -88,6 +90,10 @@ export const styles = `
         #live-chat__input-box{
             border-top:1px solid hsl(var(--muted-foreground));
             padding-top: 0.5em;
+            display:grid;
+            grid-template-columns: 1fr auto;
+            align-items:start;
+            gap:4px;
         }
 
         .message-input{
@@ -101,7 +107,7 @@ export const styles = `
 
         #live-chat__send{
             font-size: .85rem;
-            padding: .2em;
+            padding: .8em;
             border: 1px solid hsl(var(--muted-foreground));
             border-radius: 5px;
         }
