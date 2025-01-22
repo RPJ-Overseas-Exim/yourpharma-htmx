@@ -1,44 +1,49 @@
 package home_views
 
-import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
-import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components"
-import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/home"
-import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
-import "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
+import (
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/db/models"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components"
+	components_home "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/home"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/components/ui"
+	icons "github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/icons"
+	"github.com/RPJ-Overseas-Exim/yourpharma-htmx/views/layouts"
+)
 
-templ Home( products []*models.Product) {
-    <main class="my-4 md:my-8 ">
-        @components_home.Home_Title_h2("Browse Our Huge catalog of products")
-        @ui.Title_h3("The Best in the Business","text-xs lg:text-sm text-muted-foreground mb-4")
-        <section id="featured-products">
-            @components.Cards(products)
-            <a href="/products" class="font-semibold mt-4 inline-block text-base hover:text-sky-500 lg:text-xl">View All</a>
-        </section>
-
-        <section id="features" class="my-8">
-        @components_home.Home_Title_h2("We Promise")
-        <div class="my-8 grid gap-16 grid-cols-feature justify-center">
-            @components_home.FeatureCard("Genuinity", "handshake", "jpg"){
-				We can gurantee our genuinity by the 100000+ orders devlivered
-				to customers. We only promise what we can deliver and not anything
-				more than that.
-            }
-            @components_home.FeatureCard("Speedy Delivery", "speed", "jpg"){
-			    Express delivery at your doorsteps with USPS. Moreover this
-                Delivery is USA to USA so no hassle of customs. We guarantee a
-                refund in case you can prove to us of a mistake on our part.
-            }
-
-            @components_home.FeatureCard("Best Price", "money", "webp"){
-			    Here at YourPharma we strive to provide the best possible
-                market prices for all our meds. That is not to say we compromise
-                in quality, all our meds are branded.
-            }
-        </div>
-        </section>
-    </main>
+templ Home(products []*models.Product) {
+	<main class="my-4 md:my-8 ">
+		@components_home.Home_Title_h2("Browse Our Huge catalog of products")
+		@ui.Title_h3("The Best in the Business", "text-xs lg:text-sm text-muted-foreground mb-4")
+		<section id="featured-products">
+			@components.Cards(products)
+			<a href="/products" class="mt-4 w-[max-content] flex items-center gap-4 relative inline-block group">
+				<span class="font-semibold inline-block text-base hover:text-sky-500 lg:text-xl bg-background">View All</span>
+				<span class="group-hover:-translate-x-1/2 transition-all duration-300 ease">
+					@icons.RightArrow()
+				</span>
+			</a>
+		</section>
+		<section id="features" class="my-8">
+			@components_home.Home_Title_h2("We Promise")
+			<div class="my-8 grid gap-16 grid-cols-feature justify-center">
+				@components_home.FeatureCard("Genuinity", "handshake", "jpg") {
+					We can gurantee our genuinity by the 100000+ orders devlivered
+					to customers. We only promise what we can deliver and not anything
+					more than that.
+				}
+				@components_home.FeatureCard("Speedy Delivery", "speed", "jpg") {
+					Express delivery at your doorsteps with USPS. Moreover this
+					Delivery is USA to USA so no hassle of customs. We guarantee a
+					refund in case you can prove to us of a mistake on our part.
+				}
+				@components_home.FeatureCard("Best Price", "money", "webp") {
+					Here at YourPharma we strive to provide the best possible
+					market prices for all our meds. That is not to say we compromise
+					in quality, all our meds are branded.
+				}
+			</div>
+		</section>
+	</main>
 }
-
 
 templ HomeIndex(title string, cmp templ.Component) {
 	@layouts.Base(title) {
